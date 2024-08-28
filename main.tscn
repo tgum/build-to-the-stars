@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://clpl3one3n7q6"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_kj17n"]
+[ext_resource type="Texture2D" uid="uid://cdccy53hy315f" path="res://assets/Sky/Sky.png" id="2_dnjvg"]
+[ext_resource type="Texture2D" uid="uid://dea5ox34xvjnf" path="res://assets/Buildings/Base.png" id="2_j6tkv"]
+[ext_resource type="PackedScene" uid="uid://cf81fdvkenpeh" path="res://block_display.tscn" id="4_8t058"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p4n67"]
+
+[node name="Main" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_kj17n")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -100
+texture_filter = 1
+position = Vector2(0, -680)
+texture = ExtResource("2_dnjvg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(0, 120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(0, -40)
+shape = SubResource("WorldBoundaryShape2D_p4n67")
+
+[node name="Base" type="Sprite2D" parent="Floor"]
+texture = ExtResource("2_j6tkv")
+
+[node name="Spawn_timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="Block_display" parent="." instance=ExtResource("4_8t058")]
+
+[connection signal="timeout" from="Spawn_timer" to="." method="do_can_spawn"]

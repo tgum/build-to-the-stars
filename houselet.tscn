@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy60cimkq646n"]
+
+[ext_resource type="Script" path="res://Houselet.gd" id="1_78hug"]
+
+[node name="Houselet" type="Node2D"]
+script = ExtResource("1_78hug")
