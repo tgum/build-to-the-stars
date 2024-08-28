@@ -17,17 +17,14 @@ texture_filter = 1
 position = Vector2(0, -680)
 texture = ExtResource("2_dnjvg")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -100
-
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(0, 120)
+position = Vector2(0, 80)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(0, -40)
 shape = SubResource("WorldBoundaryShape2D_p4n67")
 
 [node name="Base" type="Sprite2D" parent="Floor"]
+position = Vector2(0, 40)
 texture = ExtResource("2_j6tkv")
 
 [node name="Spawn_timer" type="Timer" parent="."]
@@ -36,6 +33,7 @@ wait_time = 0.1
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+position_smoothing_speed = 1.0
 
 [node name="Block_display" parent="." instance=ExtResource("4_8t058")]
 

@@ -15,19 +15,19 @@ func clear_children():
 
 func make_display():
 	clear_children()
-	var shape = Globals.houselet_shapes[Globals.block_index]
-	var center = Globals.houselet_pivots[Globals.block_index]
+	var shape = Globals.houselet_shapes[Globals.next_block.shape_i]
+	var center = Globals.houselet_pivots[Globals.next_block.shape_i]
 	for pos in shape:
 		var image = Sprite2D.new()
-		image.texture = Globals.block_texture
+		image.texture = Globals.block_texture()
 		block_container.add_child(image)
 		image.position = (pos-center) * Globals.tile_size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	rotation = Globals.rotation
-	position.x = Globals.block_x
-	position.y = -100
+	rotation = Globals.next_block.rotation
+	position.x = Globals.next_block.x
+	position.y = Globals.next_block.y
 	
 	raycast.rotation = -rotation
 	line.rotation = -rotation
