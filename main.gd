@@ -6,7 +6,6 @@ var can_spawn = true
 func do_can_spawn():
 	can_spawn = true
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
