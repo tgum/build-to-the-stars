@@ -11,7 +11,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p4n67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ix56"]
-size = Vector2(1, 1600)
+size = Vector2(505, 1600)
 
 [node name="Main" type="Node2D"]
 texture_filter = 1
@@ -77,11 +77,11 @@ process_mode = 3
 script = ExtResource("7_nen65")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death-area"]
-position = Vector2(-288.5, -720)
+position = Vector2(-541.5, -720)
 shape = SubResource("RectangleShape2D_3ix56")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Death-area"]
-position = Vector2(287.5, -720)
+position = Vector2(542.5, -720)
 shape = SubResource("RectangleShape2D_3ix56")
 
 [connection signal="timeout" from="Spawn_timer" to="." method="do_can_spawn"]

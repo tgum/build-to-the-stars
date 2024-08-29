@@ -18,6 +18,8 @@ func move_camera():
 	camera.position.y = lerp(camera.position.y, end_position.y, 1)
 
 func _physics_process(delta):
-	if paused == true and Input.is_anything_pressed():
-		get_tree().paused = false
-		get_tree().reload_current_scene()
+	if paused == true:
+		await get_tree().create_timer(1)
+		if Input.is_anything_pressed():
+			get_tree().paused = false
+			get_tree().reload_current_scene()
