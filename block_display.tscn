@@ -1,11 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cf81fdvkenpeh"]
+[gd_scene load_steps=4 format=3 uid="uid://cf81fdvkenpeh"]
 
 [ext_resource type="Script" path="res://Block_display.gd" id="1_2gw54"]
+[ext_resource type="Shader" path="res://wave-shader.gdshader" id="2_ysuuk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x5rfj"]
+shader = ExtResource("2_ysuuk")
 
 [node name="Block_display" type="Node2D"]
 script = ExtResource("1_2gw54")
 
 [node name="Blocks" type="Node2D" parent="."]
+material = SubResource("ShaderMaterial_x5rfj")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 500)
