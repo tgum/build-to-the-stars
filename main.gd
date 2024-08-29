@@ -38,6 +38,8 @@ func new_houselet(x=300, y=0):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	exit()
+	
 	var highest_block = 0
 	for hl in houselets:
 		for block in hl.get_children():
@@ -46,3 +48,7 @@ func _process(delta):
 				highest_block = pos.y
 	Globals.next_block.y = highest_block - 100
 	camera.position.y = round(Globals.next_block.y + 100)
+
+func exit():
+	if Input.is_action_pressed("Escape"):
+		get_tree().quit()

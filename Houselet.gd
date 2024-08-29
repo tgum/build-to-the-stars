@@ -1,8 +1,5 @@
 extends RigidBody2D
 
-func _ready():
-	pass
-
 func init(blocks, x, y, angle):
 	#mass = randi() % 100
 	rotation = angle

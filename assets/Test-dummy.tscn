@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://cisryjpy4r0eo"]
+
+[ext_resource type="Shader" path="res://wave-shader.gdshader" id="1_uvq0n"]
+
+[sub_resource type="Gradient" id="Gradient_fhcvb"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_o13iy"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kvkov"]
+color_ramp = SubResource("Gradient_fhcvb")
+noise = SubResource("FastNoiseLite_o13iy")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w11y6"]
+shader = ExtResource("1_uvq0n")
+shader_parameter/scroll1 = Vector2(0.1, 0.1)
+shader_parameter/scroll2 = Vector2(0.2, 0.1)
+shader_parameter/dissolve_form = SubResource("NoiseTexture2D_kvkov")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_osdpg"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7lccx"]
+color_ramp = SubResource("Gradient_fhcvb")
+noise = SubResource("FastNoiseLite_osdpg")
+
+[node name="Icon" type="Sprite2D"]
+self_modulate = Color(1, 1, 1, 0.133333)
+texture_repeat = 3
+material = SubResource("ShaderMaterial_w11y6")
+position = Vector2(-6, -7)
+texture = SubResource("NoiseTexture2D_7lccx")

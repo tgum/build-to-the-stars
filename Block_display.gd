@@ -1,5 +1,7 @@
 extends Node2D
 
+var shader = preload("res://wave-shader.gdshader")
+
 @onready var line = $Line2D
 @onready var raycast = $RayCast2D
 @onready var block_container = $Blocks
@@ -21,6 +23,8 @@ func make_display():
 		var image = Sprite2D.new()
 		image.texture = Globals.block_texture()
 		block_container.add_child(image)
+		image.material = ShaderMaterial.new()
+		image.material.set("shader", shader)
 		image.position = (pos-center) * Globals.tile_size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
