@@ -5,16 +5,20 @@ extends Node
 var block_textures = []
 func block_texture():
 	return block_textures[next_block.texture_i]
-	return block_textures[randi() % block_textures.size()]
 #var block_texture = preload("res://assets/Buildings/Buildings3.png")
 
 var houselet_shapes = [
-	[Vector2(0,0), Vector2(1,0), Vector2(2,0), Vector2(1,1)],
-	[Vector2(0,0), Vector2(1,0), Vector2(1,1), Vector2(2,1)],
-	[Vector2(0,0), Vector2(0,1), Vector2(1,1), Vector2(2,1), Vector2(2,0)],
+	[Vector2(0,0), Vector2(1,0), Vector2(2,0), Vector2(1,1)], # T
+	[Vector2(0,0), Vector2(1,0), Vector2(1,1), Vector2(2,1)], # Z
+	[Vector2(0,0), Vector2(0,1), Vector2(1,1), Vector2(2,1), Vector2(2,0)], # U
+	[Vector2(0, 0), Vector2(1, 0), Vector2(2, 0), Vector2(3, 0)], # I
+	[Vector2(0, 0), Vector2(1, 0), Vector2(1, -1), Vector2(2, -1)], # S
+	[Vector2(0, 0), Vector2(1, 0), Vector2(2, 0), Vector2(2, 1)], # L
+	[Vector2(0, 0), Vector2(1, 0), Vector2(2, 0), Vector2(2, -1)], # upside down L
 ]
 var houselet_pivots = []
 
+var can_drop = true
 var next_block = {
 	"rotation": 0,
 	"x": 0,
@@ -25,6 +29,10 @@ var next_block = {
 var tile_size = 32
 
 var screen_dimensions
+
+var game_over = false
+
+var drop_height
 
 func _ready():
 	for i in range(1, 6):
@@ -40,3 +48,5 @@ func _ready():
 	var camera = get_viewport().get_camera_2d()
 	var screen_size = get_viewport().get_size()
 	screen_dimensions = Vector2(screen_size) / camera.zoom
+	
+	drop_height = Globals.screen_dimensions.y/2  - tile_size*2

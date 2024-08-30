@@ -1,6 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf81fdvkenpeh"]
+[gd_scene load_steps=6 format=3 uid="uid://cf81fdvkenpeh"]
 
 [ext_resource type="Script" path="res://Block_display.gd" id="1_2gw54"]
+[ext_resource type="Texture2D" uid="uid://bgvyy26b8f4lf" path="res://assets/Magnet/Magnet1.png" id="2_uva8c"]
+[ext_resource type="Texture2D" uid="uid://cwwqsxh47msu1" path="res://assets/Magnet/Magnet2.png" id="3_bqeee"]
+[ext_resource type="Texture2D" uid="uid://nn1kbih27qkl" path="res://assets/Magnet/Magnet3.png" id="4_gov5x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2s483"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uva8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bqeee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gov5x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="Gradient" id="Gradient_hrejk"]
 
@@ -12,13 +32,24 @@ color_ramp = SubResource("Gradient_hrejk")
 noise = SubResource("FastNoiseLite_42n47")
 
 [node name="Block_display" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_2gw54")
 noise_texure = SubResource("NoiseTexture2D_nfen0")
 
-[node name="Blocks" type="Node2D" parent="."]
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 500)
 
-[node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(0, 0, 0, 0)
+[node name="Blocks" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_2s483")
+autoplay = "default"
+frame = 2
+frame_progress = 1.0

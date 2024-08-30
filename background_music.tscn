@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6khkfxkx78go"]
+
+[ext_resource type="AudioStream" uid="uid://dl0c672trax6q" path="res://assets/Music/Very calm and good music.mp3" id="1_m5lhk"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_m5lhk")
+autoplay = true

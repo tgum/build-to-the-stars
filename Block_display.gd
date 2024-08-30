@@ -7,6 +7,7 @@ var numb = 0
 @onready var line = $Line2D
 @onready var raycast = $RayCast2D
 @onready var block_container = $Blocks
+@onready var sprite = $AnimatedSprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,10 +41,16 @@ func _process(delta):
 	
 	rotation = Globals.next_block.rotation
 	position.x = Globals.next_block.x
-	position.y = Globals.next_block.y
-	
-	raycast.rotation = -rotation
-	line.rotation = -rotation
-	if raycast.is_colliding():
-		var point = raycast.get_collision_point()
-		line.set_point_position(1, Vector2(0, point.y - position.y))
+	if Globals.can_drop:
+		block_container.visible = true
+		line.visible = true
+		block_container.rotation = Globals.next_block.rotation
+		position.y = Globals.next_block.y
+
+		if raycast.is_colliding():
+			var point = raycast.get_collision_point()
+			line.set_point_position(1, Vector2(0, point.y - position.y))
+	else:
+		line.set_point_position(0, Vector2.ZERO)
+		block_container.visible = false
+		line.visible = false

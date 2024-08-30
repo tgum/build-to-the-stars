@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://Houselet.gd" id="1_78hug"]
 
 [node name="Houselet" type="RigidBody2D"]
+process_mode = 1
 script = ExtResource("1_78hug")

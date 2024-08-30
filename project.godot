@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Globals="*res://Globals.gd"
 Directions="*res://Directions.gd"
+BackgroundMusic="*res://background_music.tscn"
 
 [display]
 
