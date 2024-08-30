@@ -7,7 +7,7 @@ var numb = 0
 @onready var line = $Line2D
 @onready var raycast = $RayCast2D
 @onready var block_container = $Blocks
-@onready var sprite = $AnimatedSprite2D
+@onready var sprite = $Magnet
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,18 +25,13 @@ func make_display():
 	for pos in shape:
 		var image = Sprite2D.new()
 		image.texture = Globals.block_texture()
+		image.use_parent_material = true
 		block_container.add_child(image)
-		image.material = ShaderMaterial.new()
-		image.material.set("shader", shader)
-		image.material.set_shader_parameter("dissolve_form", noise_texure)
-		image.material.set_shader_parameter("dissolve_state", 0.5)
-		if image.material.get_shader_parameter("dissolve_form/Noise_Texture2D/FastNoiseLite/offset") != null:
-			print(image.material.get_shader_parameter("dissolve_form/Noise_Texture2D/FastNoiseLite/offset"))
 		image.position = (pos-center) * Globals.tile_size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	make_display()
+	#make_display()
 	numb = numb + 50
 	
 	block_container.rotation = Globals.next_block.rotation

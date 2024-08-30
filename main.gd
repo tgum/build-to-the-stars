@@ -39,9 +39,8 @@ func new_houselet(x=300, y=0):
 	add_child(hl)
 	houselets.append(hl)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#check_exit()
+	check_exit()
 
 	if not Globals.game_over:
 		var highest_block = 0
