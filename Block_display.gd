@@ -1,6 +1,8 @@
 extends Node2D
 
+@export var noise_texure : NoiseTexture2D
 var shader = preload("res://wave-shader.gdshader")
+var numb = 0
 
 @onready var line = $Line2D
 @onready var raycast = $RayCast2D
@@ -25,10 +27,17 @@ func make_display():
 		block_container.add_child(image)
 		image.material = ShaderMaterial.new()
 		image.material.set("shader", shader)
+		image.material.set_shader_parameter("dissolve_form", noise_texure)
+		image.material.set_shader_parameter("dissolve_state", 0.5)
+		if image.material.get_shader_parameter("dissolve_form/Noise_Texture2D/FastNoiseLite/offset") != null:
+			print(image.material.get_shader_parameter("dissolve_form/Noise_Texture2D/FastNoiseLite/offset"))
 		image.position = (pos-center) * Globals.tile_size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	make_display()
+	numb = numb + 50
+	
 	rotation = Globals.next_block.rotation
 	position.x = Globals.next_block.x
 	position.y = Globals.next_block.y
