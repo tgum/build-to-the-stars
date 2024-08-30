@@ -1,9 +1,9 @@
 extends Node2D
 
-@export var noise_texure : NoiseTexture2D
-var shader = preload("res://wave-shader.gdshader")
-var numb = 0
+# I drew dotted versions of everything
 
+
+#variables which are important
 @onready var line = $Line2D
 @onready var raycast = $RayCast2D
 @onready var block_container = $Blocks
@@ -13,11 +13,13 @@ var numb = 0
 func _ready():
 	make_display()
 
+#Read the title, Idiot
 func clear_children():
 	for i in block_container.get_children():
 		block_container.remove_child(i)
 		i.queue_free()
 
+#Same here
 func make_display():
 	clear_children()
 	var shape = Globals.houselet_shapes[Globals.next_block.shape_i]
@@ -32,7 +34,6 @@ func make_display():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#make_display()
-	numb = numb + 50
 	
 	block_container.rotation = Globals.next_block.rotation
 	position.x = Globals.next_block.x

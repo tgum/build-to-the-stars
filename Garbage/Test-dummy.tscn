@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cisryjpy4r0eo"]
 
-[ext_resource type="Shader" path="res://wave-shader.gdshader" id="1_uvq0n"]
-[ext_resource type="Texture2D" uid="uid://bub7xlgw2kwwj" path="res://icon.svg" id="2_j66kc"]
+[ext_resource type="Shader" path="res://Garbage/wave-shader.gdshader" id="1_w5xlc"]
+[ext_resource type="Texture2D" uid="uid://bub7xlgw2kwwj" path="res://icon.svg" id="2_p76up"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_2ojqk"]
 
@@ -9,8 +9,9 @@
 noise = SubResource("FastNoiseLite_2ojqk")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w11y6"]
-shader = ExtResource("1_uvq0n")
+shader = ExtResource("1_w5xlc")
 shader_parameter/dissolve_state = 0.24
+shader_parameter/smoothstep_thing = null
 shader_parameter/dissolve_form = SubResource("NoiseTexture2D_sv1ms")
 
 [node name="Icon" type="Sprite2D"]
@@ -18,4 +19,4 @@ self_modulate = Color(1, 1, 1, 0.133333)
 texture_repeat = 3
 material = SubResource("ShaderMaterial_w11y6")
 position = Vector2(-6, -7)
-texture = ExtResource("2_j66kc")
+texture = ExtResource("2_p76up")

@@ -13,6 +13,10 @@ process_mode = 3
 texture_filter = 1
 script = ExtResource("1_kj17n")
 
+[node name="Base" type="Sprite2D" parent="."]
+position = Vector2(0, 120)
+texture = ExtResource("2_j6tkv")
+
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -100
 texture_filter = 1
@@ -36,10 +40,6 @@ position = Vector2(0, 80)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape2D_p4n67")
 
-[node name="Base" type="Sprite2D" parent="Floor"]
-position = Vector2(0, 40)
-texture = ExtResource("2_j6tkv")
-
 [node name="Spawn_timer" type="Timer" parent="."]
 wait_time = 0.1
 
@@ -49,6 +49,7 @@ zoom = Vector2(2, 2)
 limit_bottom = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 1.0
+editor_draw_limits = true
 
 [node name="Block_display" parent="." instance=ExtResource("4_8t058")]
 

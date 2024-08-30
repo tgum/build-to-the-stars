@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhien03iaptui"
-path="res://.godot/imported/Big Cheese1.png-0d2c81f1c18344a03c9a4422ffcc959f.ctex"
+uid="uid://cem1ulyxy8gp1"
+path="res://.godot/imported/Dotted Buildings5.png-01b3ee64ffa81c1a4076a029098007df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Cheese/Big Cheese1.png"
-dest_files=["res://.godot/imported/Big Cheese1.png-0d2c81f1c18344a03c9a4422ffcc959f.ctex"]
+source_file="res://assets/Buildings/Dotted Buildings5.png"
+dest_files=["res://.godot/imported/Dotted Buildings5.png-01b3ee64ffa81c1a4076a029098007df.ctex"]
 
 [params]
 

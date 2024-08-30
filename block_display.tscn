@@ -1,20 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cf81fdvkenpeh"]
+[gd_scene load_steps=11 format=3 uid="uid://cf81fdvkenpeh"]
 
 [ext_resource type="Script" path="res://Block_display.gd" id="1_2gw54"]
-[ext_resource type="Texture2D" uid="uid://b0csyun2tq3di" path="res://assets/UI/Button.png" id="2_erd1t"]
 [ext_resource type="Texture2D" uid="uid://bgvyy26b8f4lf" path="res://assets/Magnet/Magnet1.png" id="2_uva8c"]
-[ext_resource type="Shader" path="res://wave-shader.gdshader" id="2_x7bpf"]
+[ext_resource type="Shader" path="res://Garbage/wave-shader.gdshader" id="2_x7bpf"]
+[ext_resource type="Texture2D" uid="uid://bb7c37208mfqj" path="res://assets/New behind stuff for the houses.png" id="3_4b0ow"]
 [ext_resource type="Texture2D" uid="uid://cwwqsxh47msu1" path="res://assets/Magnet/Magnet2.png" id="3_bqeee"]
 [ext_resource type="Texture2D" uid="uid://nn1kbih27qkl" path="res://assets/Magnet/Magnet3.png" id="4_gov5x"]
-
-[sub_resource type="Gradient" id="Gradient_hrejk"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_42n47"]
-offset = Vector3(27.03, 0, 0)
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nfen0"]
-color_ramp = SubResource("Gradient_hrejk")
-noise = SubResource("FastNoiseLite_42n47")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_5ge64"]
 noise_type = 3
@@ -26,7 +17,7 @@ noise = SubResource("FastNoiseLite_5ge64")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o4ct0"]
 shader = ExtResource("2_x7bpf")
-shader_parameter/dissolve_state = 0.6
+shader_parameter/dissolve_state = 1.0
 shader_parameter/smoothstep_thing = 0.0
 shader_parameter/dissolve_form = SubResource("NoiseTexture2D_qadw8")
 
@@ -50,7 +41,6 @@ animations = [{
 [node name="Block_display" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_2gw54")
-noise_texure = SubResource("NoiseTexture2D_nfen0")
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, 0)
@@ -61,7 +51,7 @@ target_position = Vector2(0, 500)
 
 [node name="Blocks" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_o4ct0")
-texture = ExtResource("2_erd1t")
+texture = ExtResource("3_4b0ow")
 
 [node name="Magnet" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

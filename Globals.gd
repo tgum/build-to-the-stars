@@ -3,8 +3,12 @@ extends Node
 @onready var houselet_scene = load("res://houselet.tscn")
 
 var block_textures = []
+var houselet_textures = []
 func block_texture():
 	return block_textures[next_block.texture_i]
+
+func houselet_texture():
+	return houselet_textures[next_block.texture_i]
 #var block_texture = preload("res://assets/Buildings/Buildings3.png")
 
 var houselet_shapes = [
@@ -36,7 +40,10 @@ var drop_height
 
 func _ready():
 	for i in range(1, 6):
-		block_textures.append(load("res://assets/Buildings/Buildings"+str(i)+".png"))
+		block_textures.append(load("res://assets/Buildings/Dotted Buildings"+str(i)+".png"))
+	
+	for i in range(1, 6):
+		houselet_textures.append(load("res://assets/Buildings/Buildings"+str(i)+".png"))
 	
 	for houselet in houselet_shapes:
 		var avg = Vector2.ZERO

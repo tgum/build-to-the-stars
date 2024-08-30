@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhien03iaptui"
-path="res://.godot/imported/Big Cheese1.png-0d2c81f1c18344a03c9a4422ffcc959f.ctex"
+uid="uid://bb7c37208mfqj"
+path="res://.godot/imported/New behind stuff for the houses.png-d8d82a1a6c307759c24914e707b18a42.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Cheese/Big Cheese1.png"
-dest_files=["res://.godot/imported/Big Cheese1.png-0d2c81f1c18344a03c9a4422ffcc959f.ctex"]
+source_file="res://assets/New behind stuff for the houses.png"
+dest_files=["res://.godot/imported/New behind stuff for the houses.png-d8d82a1a6c307759c24914e707b18a42.ctex"]
 
 [params]
 
