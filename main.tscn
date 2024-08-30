@@ -1,29 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://clpl3one3n7q6"]
+[gd_scene load_steps=7 format=3 uid="uid://clpl3one3n7q6"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_kj17n"]
 [ext_resource type="Texture2D" uid="uid://cdccy53hy315f" path="res://assets/Sky/Sky.png" id="2_dnjvg"]
 [ext_resource type="Texture2D" uid="uid://dea5ox34xvjnf" path="res://assets/Buildings/Base.png" id="2_j6tkv"]
-[ext_resource type="Texture2D" uid="uid://qextg77k244e" path="res://assets/No-No-Zone/No-No-Zone-Rest.png" id="2_smldf"]
 [ext_resource type="PackedScene" uid="uid://cf81fdvkenpeh" path="res://block_display.tscn" id="4_8t058"]
 [ext_resource type="Texture2D" uid="uid://qextg77k244e" path="res://assets/No-No-Zone/No-No-Zone-Rest.png" id="4_ra0dt"]
-[ext_resource type="Script" path="res://Death-area.gd" id="7_nen65"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p4n67"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ix56"]
-size = Vector2(505, 1600)
 
 [node name="Main" type="Node2D"]
 process_mode = 3
 texture_filter = 1
 script = ExtResource("1_kj17n")
-
-[node name="No-no-zone-rest" type="Sprite2D" parent="."]
-z_index = -101
-texture_repeat = 2
-texture = ExtResource("2_smldf")
-region_enabled = true
-region_rect = Rect2(0, 0, 2000, 5000)
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -100
@@ -32,23 +20,6 @@ texture_repeat = 2
 position = Vector2(0, -680)
 texture = ExtResource("2_dnjvg")
 region_rect = Rect2(0, 0, 10000, 1e+06)
-
-[node name="TextureRect" type="TextureRect" parent="Background"]
-offset_left = -352.0
-offset_top = -840.0
-offset_right = -288.0
-offset_bottom = 840.0
-texture = ExtResource("3_gvbck")
-stretch_mode = 1
-
-[node name="TextureRect2" type="TextureRect" parent="Background"]
-offset_left = 288.0
-offset_top = -840.0
-offset_right = 352.0
-offset_bottom = 840.0
-texture = ExtResource("3_gvbck")
-stretch_mode = 1
-flip_h = true
 
 [node name="TextureRect3" type="TextureRect" parent="Background"]
 show_behind_parent = true
@@ -83,17 +54,4 @@ position_smoothing_speed = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
-[node name="Death-area" type="Area2D" parent="."]
-process_mode = 3
-script = ExtResource("7_nen65")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Death-area"]
-position = Vector2(-541.5, -720)
-shape = SubResource("RectangleShape2D_3ix56")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Death-area"]
-position = Vector2(542.5, -720)
-shape = SubResource("RectangleShape2D_3ix56")
-
 [connection signal="timeout" from="Spawn_timer" to="." method="do_can_spawn"]
-[connection signal="body_entered" from="Death-area" to="Death-area" method="_on_body_entered"]

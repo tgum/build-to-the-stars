@@ -39,7 +39,7 @@ func _process(delta):
 	make_display()
 	numb = numb + 50
 	
-	rotation = Globals.next_block.rotation
+	block_container.rotation = Globals.next_block.rotation
 	position.x = Globals.next_block.x
 	if Globals.can_drop:
 		block_container.visible = true

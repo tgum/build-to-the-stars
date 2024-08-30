@@ -21,10 +21,6 @@ Globals="*res://Globals.gd"
 Directions="*res://Directions.gd"
 BackgroundMusic="*res://background_music.tscn"
 
-[display]
-
-window/size/mode=4
-
 [editor]
 
 version_control/plugin_name="GitPlugin"
