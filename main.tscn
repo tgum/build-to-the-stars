@@ -1,10 +1,208 @@
-[gd_scene load_steps=7 format=3 uid="uid://clpl3one3n7q6"]
+[gd_scene load_steps=57 format=3 uid="uid://clpl3one3n7q6"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_kj17n"]
 [ext_resource type="Texture2D" uid="uid://cdccy53hy315f" path="res://assets/Sky/Sky.png" id="2_dnjvg"]
 [ext_resource type="Texture2D" uid="uid://dea5ox34xvjnf" path="res://assets/Buildings/Base.png" id="2_j6tkv"]
+[ext_resource type="Texture2D" uid="uid://c2hmoblwkbyjs" path="res://assets/Win animation/Scale1.png" id="3_43h3p"]
 [ext_resource type="PackedScene" uid="uid://cf81fdvkenpeh" path="res://block_display.tscn" id="4_8t058"]
 [ext_resource type="Texture2D" uid="uid://qextg77k244e" path="res://assets/No-No-Zone/No-No-Zone-Rest.png" id="4_ra0dt"]
+[ext_resource type="Texture2D" uid="uid://dbu5swfhbwpdk" path="res://assets/Win animation/Scale2.png" id="4_uags6"]
+[ext_resource type="Texture2D" uid="uid://0qopuymgwajv" path="res://assets/Win animation/Scale3.png" id="5_hauqc"]
+[ext_resource type="Texture2D" uid="uid://d1cqj76i70801" path="res://assets/No-No-Zone/No-No-Zone-wall.png" id="5_jcp60"]
+[ext_resource type="Texture2D" uid="uid://bx3vulde58vw0" path="res://assets/No-No-Zone/No-No-Zone-backrouund.png" id="6_7qyrd"]
+[ext_resource type="Texture2D" uid="uid://4i3vf3gw1noa" path="res://assets/Win animation/Scale4.png" id="6_61vyn"]
+[ext_resource type="Texture2D" uid="uid://cclhpq6t3ia0r" path="res://assets/Win animation/Scale5.png" id="7_bc8mr"]
+[ext_resource type="Texture2D" uid="uid://uy51ja6r0oqg" path="res://assets/Win animation/Scale6.png" id="8_tfy4u"]
+[ext_resource type="Texture2D" uid="uid://brp6dt8rvqhvm" path="res://assets/Win animation/Scale7.png" id="9_c03lt"]
+[ext_resource type="Texture2D" uid="uid://dtqmcrwu2g7dr" path="res://assets/Win animation/Scale8.png" id="10_iilrc"]
+[ext_resource type="Texture2D" uid="uid://c3cb2ub3vrlos" path="res://assets/Win animation/Scale9.png" id="11_2eiu2"]
+[ext_resource type="Texture2D" uid="uid://48b5t83qs4p6" path="res://assets/Win animation/Scale10.png" id="12_odad4"]
+[ext_resource type="Texture2D" uid="uid://5vk5tymcvfmi" path="res://assets/Win animation/Scale11.png" id="13_vibju"]
+[ext_resource type="Texture2D" uid="uid://bucg82c6bkpxn" path="res://assets/Win animation/Scale12.png" id="14_hdlal"]
+[ext_resource type="Texture2D" uid="uid://bnpt5sb4tpesb" path="res://assets/Win animation/Scale13.png" id="15_hrq5d"]
+[ext_resource type="Texture2D" uid="uid://chs87n3dg2ikc" path="res://assets/Win animation/Scale14.png" id="16_w0hnx"]
+[ext_resource type="Texture2D" uid="uid://bl0x83lgo5fy6" path="res://assets/Win animation/Scale15.png" id="17_37yme"]
+[ext_resource type="Texture2D" uid="uid://b6sxdouggjxfk" path="res://assets/Win animation/Scale16.png" id="18_8fguk"]
+[ext_resource type="Texture2D" uid="uid://bd128ox1lysr4" path="res://assets/Win animation/Scale17.png" id="19_3nn61"]
+[ext_resource type="Texture2D" uid="uid://7elilma8oktp" path="res://assets/Win animation/Scale18.png" id="20_wa4tw"]
+[ext_resource type="Texture2D" uid="uid://cby2r37uhqjbn" path="res://assets/Win animation/Scale19.png" id="21_0dsxr"]
+[ext_resource type="Texture2D" uid="uid://cbfvncwvm6bd0" path="res://assets/Win animation/Scale20.png" id="22_60tbp"]
+[ext_resource type="Texture2D" uid="uid://cv7axbu1odqdq" path="res://assets/Win animation/Scale21.png" id="23_57s4i"]
+[ext_resource type="Texture2D" uid="uid://dtpr6hvms5lhu" path="res://assets/Win animation/Scale22.png" id="24_ks8h6"]
+[ext_resource type="Texture2D" uid="uid://c06vhgxokyjxr" path="res://assets/Win animation/Scale23.png" id="25_xivh2"]
+[ext_resource type="Texture2D" uid="uid://bkv56fs2oo88j" path="res://assets/Win animation/Scale24.png" id="26_qqpgq"]
+[ext_resource type="Texture2D" uid="uid://plw3s4w0f807" path="res://assets/Win animation/Scale25.png" id="27_rrhur"]
+[ext_resource type="Texture2D" uid="uid://bn7m2mj7avgn2" path="res://assets/Win animation/Scale26.png" id="28_lwuqb"]
+[ext_resource type="Texture2D" uid="uid://c8vj0ggygvkgf" path="res://assets/Win animation/Scale27.png" id="29_sjlms"]
+[ext_resource type="Texture2D" uid="uid://j5836edfr6ak" path="res://assets/Win animation/Scale28.png" id="30_ecj7d"]
+[ext_resource type="Texture2D" uid="uid://ct4gk0ik2qil8" path="res://assets/Win animation/Scale29.png" id="31_8uiuf"]
+[ext_resource type="Texture2D" uid="uid://b80eihetujjif" path="res://assets/Win animation/Scale30.png" id="32_qpvf3"]
+[ext_resource type="Texture2D" uid="uid://cd63om0vlyhvw" path="res://assets/Win animation/Scale31.png" id="33_r8xry"]
+[ext_resource type="Texture2D" uid="uid://b33ueq2u8sdmv" path="res://assets/Win animation/Scale32.png" id="34_j6piu"]
+[ext_resource type="Texture2D" uid="uid://bjwfmmwk4jj6b" path="res://assets/Win animation/Scale33.png" id="35_jrw2c"]
+[ext_resource type="Texture2D" uid="uid://dsjtj1d640aky" path="res://assets/Win animation/Scale34.png" id="36_jygqr"]
+[ext_resource type="Texture2D" uid="uid://rwv0vs6vvwgo" path="res://assets/Win animation/Scale35.png" id="37_x6i6f"]
+[ext_resource type="Texture2D" uid="uid://cb7fukcuwv5xb" path="res://assets/Win animation/Scale36.png" id="38_lkyxf"]
+[ext_resource type="Texture2D" uid="uid://p67pdwvuanjl" path="res://assets/Win animation/Scale37.png" id="39_pqpea"]
+[ext_resource type="Texture2D" uid="uid://c7ppiuxd3uqgc" path="res://assets/Win animation/Scale38.png" id="40_mhnts"]
+[ext_resource type="Texture2D" uid="uid://dg6edd4uuuhra" path="res://assets/Win animation/Scale39.png" id="41_3nxn0"]
+[ext_resource type="Texture2D" uid="uid://dd2ugd0its6wk" path="res://assets/Win animation/Scale40.png" id="42_q8k38"]
+[ext_resource type="Texture2D" uid="uid://cjkttpcaffk5d" path="res://assets/Win animation/Scale41.png" id="43_tvb8c"]
+[ext_resource type="Texture2D" uid="uid://ctqt8jhp5f3q6" path="res://assets/Win animation/Scale42.png" id="44_fe26k"]
+[ext_resource type="Texture2D" uid="uid://ce1hejg5gwvb0" path="res://assets/Win animation/Scale43.png" id="45_ltrmn"]
+[ext_resource type="Texture2D" uid="uid://blstn8krl4o1g" path="res://assets/Win animation/Scale44.png" id="46_akpps"]
+[ext_resource type="Texture2D" uid="uid://dnfn3mu6elhfo" path="res://assets/Win animation/Scale45.png" id="47_kch5m"]
+[ext_resource type="Texture2D" uid="uid://br66nbi2xsbx" path="res://assets/Win animation/Scale46.png" id="48_j18vs"]
+[ext_resource type="Texture2D" uid="uid://yni0arw8j05q" path="res://assets/Win animation/Scale47.png" id="49_7q74i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tqif6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_43h3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uags6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hauqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_61vyn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bc8mr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tfy4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_c03lt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_iilrc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2eiu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_odad4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_vibju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_hdlal")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_hrq5d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_w0hnx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_37yme")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_8fguk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_3nn61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_wa4tw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_0dsxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_60tbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_57s4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_ks8h6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_xivh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_qqpgq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_rrhur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_lwuqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_sjlms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_ecj7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_8uiuf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_qpvf3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_r8xry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_j6piu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_jrw2c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_jygqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_x6i6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_lkyxf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_pqpea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_mhnts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_3nxn0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_q8k38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_tvb8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_fe26k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_ltrmn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_akpps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_kch5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_j18vs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_7q74i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p4n67"]
 
@@ -17,6 +215,13 @@ script = ExtResource("1_kj17n")
 position = Vector2(0, 120)
 texture = ExtResource("2_j6tkv")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -680)
+sprite_frames = SubResource("SpriteFrames_tqif6")
+frame_progress = 0.0468458
+speed_scale = 2.0
+
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -100
 texture_filter = 1
@@ -24,6 +229,28 @@ texture_repeat = 2
 position = Vector2(0, -680)
 texture = ExtResource("2_dnjvg")
 region_rect = Rect2(0, 0, 10000, 1e+06)
+
+[node name="TextureRect2" type="TextureRect" parent="Background"]
+offset_left = -351.0
+offset_top = -840.0
+offset_right = -287.0
+offset_bottom = 840.0
+texture = ExtResource("5_jcp60")
+stretch_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Background"]
+offset_left = 288.0
+offset_top = -840.0
+offset_right = 352.0
+offset_bottom = 840.0
+texture = ExtResource("5_jcp60")
+stretch_mode = 1
+flip_h = true
+
+[node name="No-no-zone-backrouund" type="Sprite2D" parent="Background"]
+show_behind_parent = true
+scale = Vector2(50, 50)
+texture = ExtResource("6_7qyrd")
 
 [node name="TextureRect3" type="TextureRect" parent="Background"]
 show_behind_parent = true
@@ -45,14 +272,13 @@ wait_time = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_mode = 3
+position = Vector2(0, -9)
 zoom = Vector2(2, 2)
-limit_bottom = 0
+limit_bottom = -10
 position_smoothing_enabled = true
 position_smoothing_speed = 1.0
 editor_draw_limits = true
 
 [node name="Block_display" parent="." instance=ExtResource("4_8t058")]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [connection signal="timeout" from="Spawn_timer" to="." method="do_can_spawn"]

@@ -41,7 +41,7 @@ func new_houselet(x=300, y=0):
 
 func _process(delta):
 	check_exit()
-
+	
 	if not Globals.game_over:
 		var highest_block = 0
 		var block_outside = false
@@ -52,6 +52,9 @@ func _process(delta):
 					highest_block = pos.y
 				if pos.x < -Globals.screen_dimensions.x/2 or pos.x > Globals.screen_dimensions.x/2:
 					block_outside = true
+		if highest_block >= -145:
+			Globals.win_game = true
+		
 		if block_outside:
 			get_tree().paused = true
 			block_display.visible = false
@@ -68,7 +71,14 @@ func _process(delta):
 		camera.position = Vector2.ZERO
 		if camera.zoom.length() > 1:
 			camera.zoom = camera.zoom * 0.98
-			
+	
+	if Globals.win_game == true:
+		get_tree().paused = true
+		$AnimatedSprite2D.visible = true
+		$AnimatedSprite2D.play("default")
+		
+		
+
 func check_exit():
 	if Input.is_action_pressed("Escape"):
 		get_tree().quit()

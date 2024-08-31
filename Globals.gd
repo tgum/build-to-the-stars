@@ -35,6 +35,7 @@ var tile_size = 32
 var screen_dimensions
 
 var game_over = false
+var win_game = false
 
 var drop_height
 
