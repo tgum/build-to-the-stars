@@ -7,6 +7,7 @@ extends Node2D
 @onready var sky = $Background
 @onready var heightline = $Height_line
 @onready var score_text = $Height_line/Label
+@onready var base_img = $Base
 
 var timer_thing = true
 func do_can_spawn():
@@ -15,9 +16,14 @@ func do_can_spawn():
 var houselets = []
 
 var play_area_size
+var play_area_origin
+var base_img_height
 
 func _ready():
 	play_area_size = sky.get_texture().get_size()
+	play_area_origin = sky.position - play_area_size/2
+	base_img_height = base_img.texture.get_size().y
+	
 	camera.limit_bottom = sky.position.y + play_area_size.y/2
 	
 	heightline.points[0].x = -play_area_size.x
@@ -54,7 +60,7 @@ func _process(delta):
 	check_exit()
 	
 	if not Globals.game_over:
-		var highest_block = sky.position.y+play_area_size.y/2-100
+		var highest_block = (play_area_origin + play_area_size).y
 		var block_outside = false
 		for hl in houselets:
 			for block in hl.get_children():
@@ -70,11 +76,14 @@ func _process(delta):
 			get_tree().paused = true
 			block_display.visible = false
 			Globals.game_over = true
-		Globals.next_block.y = highest_block - Globals.drop_height
+		Globals.next_block.y = min(highest_block, 0) - Globals.drop_height
 		if Globals.can_drop:
 			camera.position.y = round(highest_block)
-		heightline.position.y = highest_block
-		score_text.text = str(highest_block) + "m"
+		heightline.position.y = min(highest_block, play_area_origin.y+play_area_size.y-base_img_height)
+		var meters = remap(highest_block,
+						   play_area_origin.y+play_area_size.y-base_img_height, play_area_origin.y,
+						   0, 1000)
+		score_text.text = str(round(max(meters, 0))) + "m"
 		
 		if houselets.size() > 0 and timer_thing:
 			var last_houselet = houselets[houselets.size()-1]
