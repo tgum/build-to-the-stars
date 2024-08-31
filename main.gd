@@ -31,7 +31,7 @@ func _input(event):
 			spawn_timer.start()
 			Globals.next_block.rotation = 0
 			Globals.next_block.shape_i = randi() % Globals.houselet_shapes.size()
-			Globals.next_block.texture_i = randi() % Globals.block_textures.size()
+			Globals.next_block.texture_i = randi() % Globals.placed_block_textures.size()
 			block_display.make_display()
 		elif event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			Globals.next_block.rotation += PI/16

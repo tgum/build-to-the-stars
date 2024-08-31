@@ -26,8 +26,8 @@ func make_display():
 	var center = Globals.houselet_pivots[Globals.next_block.shape_i]
 	for pos in shape:
 		var image = Sprite2D.new()
-		image.texture = Globals.block_texture()
-		#image.use_parent_material = true
+		image.texture = Globals.placed_block_texture()
+		#image.use_parent_material = true # should the shader be applied to the blocks?
 		block_container.add_child(image)
 		image.position = (pos-center) * Globals.tile_size
 

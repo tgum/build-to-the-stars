@@ -15,7 +15,7 @@ func init(blocks, x, y, angle):
 		collision.position = (block - center) * Globals.tile_size
 		
 		var image = Sprite2D.new()
-		image.texture = Globals.houselet_texture()
+		image.texture = Globals.placed_block_texture()
 		collision.add_child(image)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
