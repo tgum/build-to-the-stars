@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cdccy53hy315f" path="res://assets/Sky/Sky.png" id="2_dnjvg"]
 [ext_resource type="Texture2D" uid="uid://dea5ox34xvjnf" path="res://assets/Buildings/Base.png" id="2_j6tkv"]
 [ext_resource type="Texture2D" uid="uid://c2hmoblwkbyjs" path="res://assets/Win animation/Scale1.png" id="3_43h3p"]
-[ext_resource type="PackedScene" uid="uid://cf81fdvkenpeh" path="res://block_display.tscn" id="4_8t058"]
+[ext_resource type="PackedScene" path="res://block_display.tscn" id="4_8t058"]
 [ext_resource type="Texture2D" uid="uid://qextg77k244e" path="res://assets/No-No-Zone/No-No-Zone-Rest.png" id="4_ra0dt"]
 [ext_resource type="Texture2D" uid="uid://dbu5swfhbwpdk" path="res://assets/Win animation/Scale2.png" id="4_uags6"]
 [ext_resource type="Texture2D" uid="uid://0qopuymgwajv" path="res://assets/Win animation/Scale3.png" id="5_hauqc"]

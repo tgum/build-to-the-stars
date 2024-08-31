@@ -73,7 +73,7 @@ func _process(delta):
 			camera.zoom = camera.zoom * 0.98
 	
 	if Globals.win_game == true:
-		get_tree().paused = true
+		#get_tree().paused = true
 		$AnimatedSprite2D.visible = true
 		$AnimatedSprite2D.play("default")
 		

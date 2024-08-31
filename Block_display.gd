@@ -27,7 +27,7 @@ func make_display():
 	for pos in shape:
 		var image = Sprite2D.new()
 		image.texture = Globals.block_texture()
-		image.use_parent_material = true
+		#image.use_parent_material = true
 		block_container.add_child(image)
 		image.position = (pos-center) * Globals.tile_size
 
