@@ -3,6 +3,8 @@ extends Node2D
 @onready var block_display = $Block_display
 @onready var camera = $Camera2D
 @onready var spawn_timer = $Spawn_timer
+@onready var win_animation = $WinAnimation
+@onready var sky = $Background
 
 var timer_thing = true
 func do_can_spawn():
@@ -10,7 +12,10 @@ func do_can_spawn():
 
 var houselets = []
 
+var play_area_size
+
 func _ready():
+	play_area_size = sky.get_texture().get_size()
 	camera.limit_bottom = Globals.screen_dimensions.y/2
 	#camera.limit_left = -Globals.screen_dimensions.x/2
 	#camera.limit_right = Globals.screen_dimensions.x/2
@@ -74,8 +79,8 @@ func _process(delta):
 	
 	if Globals.win_game == true:
 		#get_tree().paused = true
-		$AnimatedSprite2D.visible = true
-		$AnimatedSprite2D.play("default")
+		win_animation.visible = true
+		win_animation.play("default")
 		
 		
 

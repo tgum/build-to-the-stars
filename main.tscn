@@ -1,15 +1,14 @@
-[gd_scene load_steps=57 format=3 uid="uid://clpl3one3n7q6"]
+[gd_scene load_steps=56 format=3 uid="uid://clpl3one3n7q6"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_kj17n"]
 [ext_resource type="Texture2D" uid="uid://cdccy53hy315f" path="res://assets/Sky/Sky.png" id="2_dnjvg"]
 [ext_resource type="Texture2D" uid="uid://dea5ox34xvjnf" path="res://assets/Buildings/Base.png" id="2_j6tkv"]
 [ext_resource type="Texture2D" uid="uid://c2hmoblwkbyjs" path="res://assets/Win animation/Scale1.png" id="3_43h3p"]
-[ext_resource type="PackedScene" path="res://block_display.tscn" id="4_8t058"]
+[ext_resource type="PackedScene" uid="uid://p07u8kw4d63y" path="res://block_display.tscn" id="4_8t058"]
 [ext_resource type="Texture2D" uid="uid://qextg77k244e" path="res://assets/No-No-Zone/No-No-Zone-Rest.png" id="4_ra0dt"]
 [ext_resource type="Texture2D" uid="uid://dbu5swfhbwpdk" path="res://assets/Win animation/Scale2.png" id="4_uags6"]
 [ext_resource type="Texture2D" uid="uid://0qopuymgwajv" path="res://assets/Win animation/Scale3.png" id="5_hauqc"]
 [ext_resource type="Texture2D" uid="uid://d1cqj76i70801" path="res://assets/No-No-Zone/No-No-Zone-wall.png" id="5_jcp60"]
-[ext_resource type="Texture2D" uid="uid://bx3vulde58vw0" path="res://assets/No-No-Zone/No-No-Zone-backrouund.png" id="6_7qyrd"]
 [ext_resource type="Texture2D" uid="uid://4i3vf3gw1noa" path="res://assets/Win animation/Scale4.png" id="6_61vyn"]
 [ext_resource type="Texture2D" uid="uid://cclhpq6t3ia0r" path="res://assets/Win animation/Scale5.png" id="7_bc8mr"]
 [ext_resource type="Texture2D" uid="uid://uy51ja6r0oqg" path="res://assets/Win animation/Scale6.png" id="8_tfy4u"]
@@ -199,7 +198,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("49_7q74i")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
@@ -215,11 +214,11 @@ script = ExtResource("1_kj17n")
 position = Vector2(0, 120)
 texture = ExtResource("2_j6tkv")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
+[node name="WinAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -680)
 sprite_frames = SubResource("SpriteFrames_tqif6")
-frame_progress = 0.0468458
+frame = 46
+frame_progress = 1.0
 speed_scale = 2.0
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -246,11 +245,6 @@ offset_bottom = 840.0
 texture = ExtResource("5_jcp60")
 stretch_mode = 1
 flip_h = true
-
-[node name="No-no-zone-backrouund" type="Sprite2D" parent="Background"]
-show_behind_parent = true
-scale = Vector2(50, 50)
-texture = ExtResource("6_7qyrd")
 
 [node name="TextureRect3" type="TextureRect" parent="Background"]
 show_behind_parent = true
