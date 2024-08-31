@@ -1,6 +1,7 @@
-[gd_scene load_steps=57 format=3 uid="uid://clpl3one3n7q6"]
+[gd_scene load_steps=58 format=3 uid="uid://clpl3one3n7q6"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_kj17n"]
+[ext_resource type="FontFile" uid="uid://5qnepwbbwh8g" path="res://cool_font.ttf" id="2_3wgnq"]
 [ext_resource type="Texture2D" uid="uid://cdccy53hy315f" path="res://assets/Sky/Sky.png" id="2_dnjvg"]
 [ext_resource type="Texture2D" uid="uid://dea5ox34xvjnf" path="res://assets/Buildings/Base.png" id="2_j6tkv"]
 [ext_resource type="Texture2D" uid="uid://c2hmoblwkbyjs" path="res://assets/Win animation/Scale1.png" id="3_43h3p"]
@@ -55,7 +56,9 @@
 [ext_resource type="Texture2D" uid="uid://yni0arw8j05q" path="res://assets/Win animation/Scale47.png" id="49_7q74i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_57khp"]
-font_size = 37
+font = ExtResource("2_3wgnq")
+font_size = 36
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tqif6"]
 animations = [{
@@ -218,11 +221,10 @@ points = PackedVector2Array(-100, 0, 0, 0)
 width = 6.0
 
 [node name="Label" type="Label" parent="Height_line"]
-offset_left = -64.0
-offset_top = -8.0
-offset_right = -1.0
-offset_bottom = 43.0
-text = "400"
+offset_left = -72.0
+offset_top = -6.0
+offset_bottom = 45.0
+text = "200"
 label_settings = SubResource("LabelSettings_57khp")
 
 [node name="WinAnimation" type="AnimatedSprite2D" parent="."]

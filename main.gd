@@ -6,6 +6,7 @@ extends Node2D
 @onready var win_animation = $WinAnimation
 @onready var sky = $Background
 @onready var heightline = $Height_line
+@onready var score_text = $Height_line/Label
 
 var timer_thing = true
 func do_can_spawn():
@@ -53,7 +54,7 @@ func _process(delta):
 	check_exit()
 	
 	if not Globals.game_over:
-		var highest_block = 0
+		var highest_block = sky.position.y+play_area_size.y/2-100
 		var block_outside = false
 		for hl in houselets:
 			for block in hl.get_children():
@@ -72,7 +73,8 @@ func _process(delta):
 		Globals.next_block.y = highest_block - Globals.drop_height
 		if Globals.can_drop:
 			camera.position.y = round(highest_block)
-			heightline.position.y = highest_block
+		heightline.position.y = highest_block
+		score_text.text = str(highest_block) + "m"
 		
 		if houselets.size() > 0 and timer_thing:
 			var last_houselet = houselets[houselets.size()-1]
