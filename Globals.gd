@@ -55,4 +55,4 @@ func _ready():
 	var screen_size = get_viewport().get_size()
 	screen_dimensions = Vector2(screen_size) / camera.zoom
 	
-	drop_height = Globals.screen_dimensions.y/2  - tile_size*2
+	drop_height = tile_size*3

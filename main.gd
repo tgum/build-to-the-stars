@@ -5,6 +5,7 @@ extends Node2D
 @onready var spawn_timer = $Spawn_timer
 @onready var win_animation = $WinAnimation
 @onready var sky = $Background
+@onready var heightline = $Height_line
 
 var timer_thing = true
 func do_can_spawn():
@@ -16,13 +17,17 @@ var play_area_size
 
 func _ready():
 	play_area_size = sky.get_texture().get_size()
-	camera.limit_bottom = Globals.screen_dimensions.y/2
+	camera.limit_bottom = sky.position.y + play_area_size.y/2
+	
+	heightline.points[0].x = -play_area_size.x
+	heightline.position.x = play_area_size.x/2
 	#camera.limit_left = -Globals.screen_dimensions.x/2
 	#camera.limit_right = Globals.screen_dimensions.x/2
 
 func _input(event):
 	if event is InputEventMouseMotion:
 		Globals.next_block.x = event.position.x/2 - get_viewport().get_visible_rect().size.x/4
+		Globals.next_block.x = event.position.x/camera.zoom.x  - Globals.screen_dimensions.x/2
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT and Globals.can_drop:
 			new_houselet(Globals.next_block.x, Globals.next_block.y)
@@ -55,7 +60,7 @@ func _process(delta):
 				var pos = block.global_position
 				if pos.y < highest_block:
 					highest_block = pos.y
-				if pos.x < -Globals.screen_dimensions.x/2 or pos.x > Globals.screen_dimensions.x/2:
+				if abs(pos.x) > play_area_size.x/2:
 					block_outside = true
 		if highest_block >= -145:
 			Globals.win_game = true
@@ -67,6 +72,7 @@ func _process(delta):
 		Globals.next_block.y = highest_block - Globals.drop_height
 		if Globals.can_drop:
 			camera.position.y = round(highest_block)
+			heightline.position.y = highest_block
 		
 		if houselets.size() > 0 and timer_thing:
 			var last_houselet = houselets[houselets.size()-1]
@@ -74,8 +80,8 @@ func _process(delta):
 				Globals.can_drop = true
 	else:
 		camera.position = Vector2.ZERO
-		if camera.zoom.length() > 1:
-			camera.zoom = camera.zoom * 0.98
+		if camera.zoom.x > 1:
+			camera.zoom = camera.zoom * 0.99
 	
 	if Globals.win_game == true:
 		#get_tree().paused = true

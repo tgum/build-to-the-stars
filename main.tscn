@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://clpl3one3n7q6"]
+[gd_scene load_steps=57 format=3 uid="uid://clpl3one3n7q6"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_kj17n"]
 [ext_resource type="Texture2D" uid="uid://cdccy53hy315f" path="res://assets/Sky/Sky.png" id="2_dnjvg"]
@@ -53,6 +53,9 @@
 [ext_resource type="Texture2D" uid="uid://dnfn3mu6elhfo" path="res://assets/Win animation/Scale45.png" id="47_kch5m"]
 [ext_resource type="Texture2D" uid="uid://br66nbi2xsbx" path="res://assets/Win animation/Scale46.png" id="48_j18vs"]
 [ext_resource type="Texture2D" uid="uid://yni0arw8j05q" path="res://assets/Win animation/Scale47.png" id="49_7q74i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_57khp"]
+font_size = 37
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tqif6"]
 animations = [{
@@ -210,9 +213,17 @@ process_mode = 3
 texture_filter = 1
 script = ExtResource("1_kj17n")
 
-[node name="Base" type="Sprite2D" parent="."]
-position = Vector2(0, 120)
-texture = ExtResource("2_j6tkv")
+[node name="Height_line" type="Line2D" parent="."]
+points = PackedVector2Array(-100, 0, 0, 0)
+width = 6.0
+
+[node name="Label" type="Label" parent="Height_line"]
+offset_left = -64.0
+offset_top = -8.0
+offset_right = -1.0
+offset_bottom = 43.0
+text = "400"
+label_settings = SubResource("LabelSettings_57khp")
 
 [node name="WinAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -680)
@@ -220,6 +231,10 @@ sprite_frames = SubResource("SpriteFrames_tqif6")
 frame = 46
 frame_progress = 1.0
 speed_scale = 2.0
+
+[node name="Base" type="Sprite2D" parent="."]
+position = Vector2(0, 120)
+texture = ExtResource("2_j6tkv")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -100
