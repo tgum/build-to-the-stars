@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://p07u8kw4d63y"]
+[gd_scene load_steps=7 format=3 uid="uid://p07u8kw4d63y"]
 
 [ext_resource type="Script" path="res://Block_display.gd" id="1_2gw54"]
 [ext_resource type="Shader" path="res://Garbage/wave-shader.gdshader" id="2_x7bpf"]
+[ext_resource type="Texture2D" uid="uid://b0kyfuekkekqd" path="res://assets/Magnet/Chain1.png" id="4_1s6xm"]
 [ext_resource type="Texture2D" uid="uid://nn1kbih27qkl" path="res://assets/Magnet/Magnet3.png" id="4_gov5x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o4ct0"]
@@ -43,3 +44,11 @@ position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_2s483")
 autoplay = "default"
 frame_progress = 0.551553
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -16.0
+offset_top = -441.0
+offset_right = 24.0
+offset_bottom = -64.0
+texture = ExtResource("4_1s6xm")
+stretch_mode = 1
