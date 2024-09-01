@@ -1,8 +1,7 @@
-[gd_scene load_steps=58 format=3 uid="uid://clpl3one3n7q6"]
+[gd_scene load_steps=57 format=3 uid="uid://clpl3one3n7q6"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_kj17n"]
-[ext_resource type="FontFile" uid="uid://5qnepwbbwh8g" path="res://cool_font.ttf" id="2_3wgnq"]
-[ext_resource type="Texture2D" uid="uid://cdccy53hy315f" path="res://assets/Sky/Sky.png" id="2_dnjvg"]
+[ext_resource type="PackedScene" uid="uid://ccba4pn4u154r" path="res://Text.tscn" id="2_44nk4"]
 [ext_resource type="Texture2D" uid="uid://dea5ox34xvjnf" path="res://assets/Buildings/Base.png" id="2_j6tkv"]
 [ext_resource type="Texture2D" uid="uid://c2hmoblwkbyjs" path="res://assets/Win animation/Scale1.png" id="3_43h3p"]
 [ext_resource type="PackedScene" uid="uid://p07u8kw4d63y" path="res://block_display.tscn" id="4_8t058"]
@@ -54,11 +53,7 @@
 [ext_resource type="Texture2D" uid="uid://dnfn3mu6elhfo" path="res://assets/Win animation/Scale45.png" id="47_kch5m"]
 [ext_resource type="Texture2D" uid="uid://br66nbi2xsbx" path="res://assets/Win animation/Scale46.png" id="48_j18vs"]
 [ext_resource type="Texture2D" uid="uid://yni0arw8j05q" path="res://assets/Win animation/Scale47.png" id="49_7q74i"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_57khp"]
-font = ExtResource("2_3wgnq")
-font_size = 36
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://dt5ar5r86typ4" path="res://assets/Sky/Sky_no_text.png" id="51_7bvkt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tqif6"]
 animations = [{
@@ -217,15 +212,18 @@ texture_filter = 1
 script = ExtResource("1_kj17n")
 
 [node name="Height_line" type="Line2D" parent="."]
+z_index = 1
+position = Vector2(288, 80)
 points = PackedVector2Array(-100, 0, 0, 0)
 width = 6.0
 
-[node name="Label" type="Label" parent="Height_line"]
-offset_left = -72.0
-offset_top = -6.0
-offset_bottom = 45.0
-text = "200"
-label_settings = SubResource("LabelSettings_57khp")
+[node name="Text" parent="Height_line" instance=ExtResource("2_44nk4")]
+offset_left = -104.0
+offset_top = -40.0
+offset_right = -3.0
+offset_bottom = 5.0
+
+[node name="Height_markers" type="Node2D" parent="."]
 
 [node name="WinAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -680)
@@ -243,7 +241,7 @@ z_index = -100
 texture_filter = 1
 texture_repeat = 2
 position = Vector2(0, -680)
-texture = ExtResource("2_dnjvg")
+texture = ExtResource("51_7bvkt")
 region_rect = Rect2(0, 0, 10000, 1e+06)
 
 [node name="TextureRect2" type="TextureRect" parent="Background"]

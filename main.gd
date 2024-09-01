@@ -6,7 +6,8 @@ extends Node2D
 @onready var win_animation = $WinAnimation
 @onready var sky = $Background
 @onready var heightline = $Height_line
-@onready var score_text = $Height_line/Label
+@onready var score_text = $Height_line/Text
+@onready var height_markers = $Height_markers
 @onready var base_img = $Base
 
 var timer_thing = true
@@ -28,6 +29,18 @@ func _ready():
 	
 	heightline.points[0].x = -play_area_size.x
 	heightline.position.x = play_area_size.x/2
+	
+	var num_numbers = 10
+	for i in range(1, num_numbers):
+		var text_label = Globals.text_scene.instantiate()
+		add_child(text_label)
+		text_label.text = str(i*(1000/num_numbers)) + "m"
+		text_label.position.x = play_area_size.x/2 - text_label.size.x
+		text_label.position.y = remap(i,
+						   0, 10,
+						   play_area_origin.y+play_area_size.y-base_img_height, play_area_origin.y)
+		text_label.position.y -= text_label.size.y
+
 	#camera.limit_left = -Globals.screen_dimensions.x/2
 	#camera.limit_right = Globals.screen_dimensions.x/2
 

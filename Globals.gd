@@ -1,6 +1,7 @@
 extends Node
 
 @onready var houselet_scene = load("res://houselet.tscn")
+@onready var text_scene = load("res://Text.tscn")
 
 var ghost_block_textures = []
 var placed_block_textures = []

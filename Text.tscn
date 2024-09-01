@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccba4pn4u154r"]
+
+[ext_resource type="FontFile" uid="uid://5qnepwbbwh8g" path="res://cool_font.ttf" id="1_gvtvl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_57khp"]
+font = ExtResource("1_gvtvl")
+font_size = 36
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Text" type="Label"]
+offset_right = 101.0
+offset_bottom = 45.0
+text = "200m"
+label_settings = SubResource("LabelSettings_57khp")
+horizontal_alignment = 2

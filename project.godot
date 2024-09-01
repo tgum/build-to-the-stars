@@ -27,10 +27,6 @@ Globals="*res://Globals.gd"
 Directions="*res://Directions.gd"
 BackgroundMusic="*res://background_music.tscn"
 
-[display]
-
-window/size/mode=3
-
 [editor]
 
 version_control/plugin_name="GitPlugin"
@@ -59,5 +55,6 @@ locale/locale_filter_mode=0
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
 environment/defaults/default_clear_color=Color(0, 0.0196078, 0.101961, 1)
