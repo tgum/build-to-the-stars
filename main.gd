@@ -40,13 +40,16 @@ func _ready():
 						   0, 10,
 						   play_area_origin.y+play_area_size.y-base_img_height, play_area_origin.y)
 		text_label.position.y -= text_label.size.y
+	get_viewport().connect("size_changed", _on_viewport_resize)
 
+func _on_viewport_resize():
+	var screen_size = get_viewport().get_size()
+	Globals.screen_dimensions = Vector2(screen_size) / camera.zoom
 	#camera.limit_left = -Globals.screen_dimensions.x/2
 	#camera.limit_right = Globals.screen_dimensions.x/2
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		Globals.next_block.x = event.position.x/2 - get_viewport().get_visible_rect().size.x/4
 		Globals.next_block.x = event.position.x/camera.zoom.x  - Globals.screen_dimensions.x/2
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT and Globals.can_drop:
