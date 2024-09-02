@@ -231,6 +231,7 @@ sprite_frames = SubResource("SpriteFrames_tqif6")
 frame = 46
 frame_progress = 1.0
 speed_scale = 2.0
+metadata/_edit_lock_ = true
 
 [node name="Base" type="Sprite2D" parent="."]
 position = Vector2(0, 120)
@@ -243,6 +244,8 @@ texture_repeat = 2
 position = Vector2(0, -680)
 texture = ExtResource("51_7bvkt")
 region_rect = Rect2(0, 0, 10000, 1e+06)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="Background"]
 offset_left = -351.0

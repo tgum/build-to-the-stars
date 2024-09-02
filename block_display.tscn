@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://p07u8kw4d63y"]
+[gd_scene load_steps=12 format=3 uid="uid://p07u8kw4d63y"]
 
 [ext_resource type="Script" path="res://Block_display.gd" id="1_2gw54"]
 [ext_resource type="Texture2D" uid="uid://dl8ncvj70jorx" path="res://assets/Magnet/Line/LineSecondtry1.png" id="2_fm6yi"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ciqmhwa04asv" path="res://assets/Magnet/Line/LineSecondtry3.png" id="4_gjv1g"]
 [ext_resource type="Texture2D" uid="uid://nn1kbih27qkl" path="res://assets/Magnet/Magnet3.png" id="4_gov5x"]
 [ext_resource type="Texture2D" uid="uid://drsvynloxxwo" path="res://assets/Magnet/Line/LineSecondtry4.png" id="5_7ts4v"]
+[ext_resource type="Texture2D" uid="uid://cl8tuye3gfwu4" path="res://assets/Magnet/True_Chain.png" id="8_6scug"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_q10pp"]
 frames = 4
@@ -59,3 +60,11 @@ position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_2s483")
 autoplay = "default"
 frame_progress = 0.551553
+
+[node name="Chain_Drawer" type="TextureRect" parent="."]
+offset_left = -16.0
+offset_top = -1238.0
+offset_right = 24.0
+offset_bottom = -64.0
+texture = ExtResource("8_6scug")
+stretch_mode = 1

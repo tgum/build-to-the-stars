@@ -45,13 +45,9 @@ func _ready():
 	#camera.limit_right = Globals.screen_dimensions.x/2
 
 func _input(event):
-# Jayden Edit
-	Globals.next_block.x = get_global_mouse_position().x
-	Globals.next_block.y = get_global_mouse_position().y
-	
-#	if event is InputEventMouseMotion:
-#		Globals.next_block.x = event.position.x/2 - get_viewport().get_visible_rect().size.x/4
-#		Globals.next_block.x = event.position.x/camera.zoom.x  - Globals.screen_dimensions.x/2
+	if event is InputEventMouseMotion:
+		Globals.next_block.x = event.position.x/2 - get_viewport().get_visible_rect().size.x/4
+		Globals.next_block.x = event.position.x/camera.zoom.x  - Globals.screen_dimensions.x/2
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT and Globals.can_drop:
 			new_houselet(Globals.next_block.x, Globals.next_block.y)
@@ -115,8 +111,6 @@ func _process(delta):
 		#get_tree().paused = true
 		win_animation.visible = true
 		win_animation.play("default")
-		
-		
 
 func check_exit():
 	if Input.is_action_pressed("Escape"):
