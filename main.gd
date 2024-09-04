@@ -4,6 +4,7 @@ extends Node2D
 @onready var camera = $Camera2D
 @onready var spawn_timer = $Spawn_timer
 @onready var win_animation = $WinAnimation
+@onready var lose_text = $UI/LoseText
 @onready var sky = $Background
 @onready var heightline = $Height_line
 @onready var score_text = $Height_line/Text
@@ -92,6 +93,7 @@ func _process(delta):
 			get_tree().paused = true
 			block_display.visible = false
 			Globals.game_over = true
+			lose_text.visible = true
 		Globals.next_block.y = min(highest_block, 0) - Globals.drop_height
 		if Globals.can_drop:
 			camera.position.y = round(highest_block)
