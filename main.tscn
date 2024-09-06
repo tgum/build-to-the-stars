@@ -348,67 +348,87 @@ editor_draw_limits = true
 
 [node name="Lose_stuff" type="CanvasLayer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="Lose_stuff"]
+[node name="Control" type="Control" parent="Lose_stuff"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 395.0
-offset_top = 255.0
-offset_right = -437.0
-offset_bottom = -262.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Lose_stuff/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -65.5
+offset_right = 160.0
+offset_bottom = 65.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("56_62lxf")
-stretch_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="Lose_stuff"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 346.0
-offset_top = 54.0
-offset_right = -399.0
-offset_bottom = -425.0
+[node name="TextureRect2" type="TextureRect" parent="Lose_stuff/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.5
+offset_right = 203.5
+offset_bottom = 169.0
 grow_horizontal = 2
-grow_vertical = 2
 texture = ExtResource("55_vaftp")
-stretch_mode = 2
 
-[node name="Restart" type="Button" parent="Lose_stuff"]
-offset_left = 352.0
-offset_top = 539.0
-offset_right = 470.0
-offset_bottom = 621.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_ey6u3")
-theme_override_styles/hover = SubResource("StyleBoxTexture_acy2k")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_rv01x")
-
-[node name="Quit" type="Button" parent="Lose_stuff"]
-anchors_preset = -1
-anchor_right = 0.07
-anchor_bottom = 0.066
-offset_left = 656.0
-offset_top = 539.0
-offset_right = 693.36
-offset_bottom = 578.232
-theme_override_styles/normal = SubResource("StyleBoxTexture_7bwrc")
-theme_override_styles/hover = SubResource("StyleBoxTexture_tve56")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_fmwvx")
-
-[node name="LoseText" type="TextureRect" parent="Lose_stuff"]
+[node name="LoseText" type="TextureRect" parent="Lose_stuff/Control"]
 visible = false
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 333.0
 offset_top = 45.0
-offset_right = -412.0
-offset_bottom = -434.0
+offset_right = 700.0
+offset_bottom = 174.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("55_vaftp")
 stretch_mode = 4
 
+[node name="Restart" type="Button" parent="Lose_stuff/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -128.0
+offset_right = 208.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ey6u3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_acy2k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rv01x")
+
+[node name="Quit" type="Button" parent="Lose_stuff/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -208.0
+offset_top = -128.0
+offset_right = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_7bwrc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tve56")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fmwvx")
+
 [connection signal="timeout" from="Spawn_timer" to="." method="do_can_spawn"]
-[connection signal="button_up" from="Lose_stuff/Restart" to="." method="_on_restart_button_up"]
-[connection signal="button_up" from="Lose_stuff/Quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="Lose_stuff/Control/Restart" to="." method="_on_restart_button_up"]
+[connection signal="button_up" from="Lose_stuff/Control/Quit" to="." method="_on_quit_button_up"]
