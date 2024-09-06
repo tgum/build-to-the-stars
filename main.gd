@@ -4,7 +4,7 @@ extends Node2D
 @onready var camera = $Camera2D
 @onready var spawn_timer = $Spawn_timer
 @onready var win_animation = $WinAnimation
-@onready var lose_text = $UI/LoseText
+@onready var lose_text = $Lose_stuff
 @onready var sky = $Background
 @onready var heightline = $Height_line
 @onready var score_text = $Height_line/Text
@@ -120,3 +120,11 @@ func _process(delta):
 func check_exit():
 	if Input.is_action_pressed("Escape"):
 		get_tree().quit()
+
+
+func _on_quit_button_up():
+	get_tree().quit()
+
+
+func _on_restart_button_up():
+	Globals.reload()

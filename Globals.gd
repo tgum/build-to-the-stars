@@ -57,3 +57,8 @@ func _ready():
 	screen_dimensions = Vector2(screen_size) / camera.zoom
 	
 	drop_height = tile_size*3
+
+func reload():
+	game_over = false
+	get_tree().paused = false
+	get_tree().reload_current_scene()

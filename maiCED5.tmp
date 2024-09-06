@@ -55,7 +55,6 @@
 [ext_resource type="Texture2D" uid="uid://yni0arw8j05q" path="res://assets/Win animation/Scale47.png" id="49_7q74i"]
 [ext_resource type="Texture2D" uid="uid://dt5ar5r86typ4" path="res://assets/Sky/Sky_no_text.png" id="51_7bvkt"]
 [ext_resource type="Texture2D" uid="uid://cbxypiyrumnp8" path="res://assets/UI/Win/Lose.png" id="55_vaftp"]
-[ext_resource type="Texture2D" uid="uid://bvv5tdb7asi6h" path="res://assets/UI/Win/Score.png" id="56_62lxf"]
 [ext_resource type="Texture2D" uid="uid://b0csyun2tq3di" path="res://assets/UI/Button.png" id="56_qgylu"]
 [ext_resource type="Texture2D" uid="uid://drxtnn8gthffy" path="res://assets/UI/Button1.png" id="57_o7r1j"]
 [ext_resource type="Texture2D" uid="uid://cjfjxwbq3dosl" path="res://assets/UI/Button2.png" id="58_15rmo"]
@@ -219,6 +218,11 @@ animations = [{
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p4n67"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_fvmko"]
+font_size = 32
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ey6u3"]
 texture = ExtResource("56_qgylu")
 
@@ -347,32 +351,29 @@ editor_draw_limits = true
 [node name="Block_display" parent="." instance=ExtResource("4_8t058")]
 
 [node name="Lose_stuff" type="CanvasLayer" parent="."]
+visible = false
 
-[node name="TextureRect" type="TextureRect" parent="Lose_stuff"]
+[node name="LoseText" type="TextureRect" parent="Lose_stuff"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 395.0
-offset_top = 255.0
-offset_right = -437.0
-offset_bottom = -262.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("56_62lxf")
-stretch_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="Lose_stuff"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 346.0
-offset_top = 54.0
-offset_right = -399.0
-offset_bottom = -425.0
+offset_left = 331.0
+offset_top = 180.0
+offset_right = -331.0
+offset_bottom = -180.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("55_vaftp")
-stretch_mode = 2
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Lose_stuff"]
+offset_left = 438.0
+offset_top = 414.0
+offset_right = 683.0
+offset_bottom = 507.0
+text = "Your Highscore: 
+Your Score        :"
+label_settings = SubResource("LabelSettings_fvmko")
 
 [node name="Restart" type="Button" parent="Lose_stuff"]
 offset_left = 352.0
@@ -394,20 +395,6 @@ offset_bottom = 578.232
 theme_override_styles/normal = SubResource("StyleBoxTexture_7bwrc")
 theme_override_styles/hover = SubResource("StyleBoxTexture_tve56")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_fmwvx")
-
-[node name="LoseText" type="TextureRect" parent="Lose_stuff"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 333.0
-offset_top = 45.0
-offset_right = -412.0
-offset_bottom = -434.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("55_vaftp")
-stretch_mode = 4
 
 [connection signal="timeout" from="Spawn_timer" to="." method="do_can_spawn"]
 [connection signal="button_up" from="Lose_stuff/Restart" to="." method="_on_restart_button_up"]
