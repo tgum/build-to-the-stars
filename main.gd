@@ -4,6 +4,7 @@ extends Node2D
 @onready var camera = $Camera2D
 @onready var spawn_timer = $Spawn_timer
 @onready var win_animation = $WinAnimation
+@onready var lose_text = $UI/LoseText
 @onready var sky = $Background
 @onready var heightline = $Height_line
 @onready var score_text = $Height_line/Text
@@ -40,18 +41,17 @@ func _ready():
 						   0, 10,
 						   play_area_origin.y+play_area_size.y-base_img_height, play_area_origin.y)
 		text_label.position.y -= text_label.size.y
+	get_viewport().connect("size_changed", _on_viewport_resize)
 
+func _on_viewport_resize():
+	var screen_size = get_viewport().get_size()
+	Globals.screen_dimensions = Vector2(screen_size) / camera.zoom
 	#camera.limit_left = -Globals.screen_dimensions.x/2
 	#camera.limit_right = Globals.screen_dimensions.x/2
 
 func _input(event):
-# Jayden Edit
-	Globals.next_block.x = get_global_mouse_position().x
-	Globals.next_block.y = get_global_mouse_position().y
-	
-#	if event is InputEventMouseMotion:
-#		Globals.next_block.x = event.position.x/2 - get_viewport().get_visible_rect().size.x/4
-#		Globals.next_block.x = event.position.x/camera.zoom.x  - Globals.screen_dimensions.x/2
+	if event is InputEventMouseMotion:
+		Globals.next_block.x = event.position.x/camera.zoom.x  - Globals.screen_dimensions.x/2
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT and Globals.can_drop:
 			new_houselet(Globals.next_block.x, Globals.next_block.y)
@@ -93,6 +93,7 @@ func _process(delta):
 			get_tree().paused = true
 			block_display.visible = false
 			Globals.game_over = true
+			lose_text.visible = true
 		Globals.next_block.y = min(highest_block, 0) - Globals.drop_height
 		if Globals.can_drop:
 			camera.position.y = round(highest_block)
@@ -115,8 +116,6 @@ func _process(delta):
 		#get_tree().paused = true
 		win_animation.visible = true
 		win_animation.play("default")
-		
-		
 
 func check_exit():
 	if Input.is_action_pressed("Escape"):

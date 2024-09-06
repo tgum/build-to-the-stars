@@ -38,10 +38,10 @@ func _process(delta):
 	block_container.rotation = Globals.next_block.rotation
 	position.x = Globals.next_block.x
 	if Globals.can_drop:
+		position.y = lerpf(position.y, float(Globals.next_block.y), 0.2)
 		block_container.visible = true
 		line.visible = true
 		block_container.rotation = Globals.next_block.rotation
-		position.y = Globals.next_block.y
 
 		if raycast.is_colliding():
 			var point = raycast.get_collision_point()

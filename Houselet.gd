@@ -1,7 +1,11 @@
 extends RigidBody2D
 
 func init(blocks, x, y, angle):
-	#mass = randi() % 100
+	#
+	mass = randi() % 100
+	#if randi() % 2 == 0:
+	#	gravity_scale = 0.1
+	
 	rotation = angle
 	position = Vector2(x, y)
 	

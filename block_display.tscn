@@ -1,8 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://p07u8kw4d63y"]
+[gd_scene load_steps=12 format=3 uid="uid://p07u8kw4d63y"]
 
 [ext_resource type="Script" path="res://Block_display.gd" id="1_2gw54"]
+[ext_resource type="Texture2D" path="res://assets/Magnet/Line/LineSecondtry1.png" id="2_fm6yi"]
 [ext_resource type="Shader" path="res://Garbage/wave-shader.gdshader" id="2_x7bpf"]
+[ext_resource type="Texture2D" path="res://assets/Magnet/Line/LineSecondtry2.png" id="3_kby0f"]
+[ext_resource type="Texture2D" path="res://assets/Magnet/Line/LineSecondtry3.png" id="4_gjv1g"]
 [ext_resource type="Texture2D" uid="uid://nn1kbih27qkl" path="res://assets/Magnet/Magnet3.png" id="4_gov5x"]
+[ext_resource type="Texture2D" path="res://assets/Magnet/Line/LineSecondtry4.png" id="5_7ts4v"]
+[ext_resource type="Texture2D" path="res://assets/Magnet/True_Chain.png" id="8_6scug"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_q10pp"]
+frames = 4
+speed_scale = 20.0
+frame_0/texture = ExtResource("2_fm6yi")
+frame_1/texture = ExtResource("3_kby0f")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_gjv1g")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("5_7ts4v")
+frame_3/duration = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o4ct0"]
 shader = ExtResource("2_x7bpf")
@@ -28,7 +44,8 @@ script = ExtResource("1_2gw54")
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, 0)
-width = 1.0
+texture = SubResource("AnimatedTexture_q10pp")
+texture_mode = 2
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 500)
@@ -43,3 +60,11 @@ position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_2s483")
 autoplay = "default"
 frame_progress = 0.551553
+
+[node name="Chain_Drawer" type="TextureRect" parent="."]
+offset_left = -16.0
+offset_top = -1238.0
+offset_right = 24.0
+offset_bottom = -64.0
+texture = ExtResource("8_6scug")
+stretch_mode = 1
