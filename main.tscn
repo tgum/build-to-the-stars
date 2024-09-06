@@ -347,6 +347,7 @@ editor_draw_limits = true
 [node name="Block_display" parent="." instance=ExtResource("4_8t058")]
 
 [node name="Lose_stuff" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="Lose_stuff"]
 layout_mode = 3
