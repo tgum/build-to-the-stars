@@ -35,6 +35,8 @@ var tile_size = 32
 
 var screen_dimensions
 
+var music_play : bool
+
 var game_over = false
 var win_game = false
 
@@ -57,3 +59,8 @@ func _ready():
 	screen_dimensions = Vector2(screen_size) / camera.zoom
 	
 	drop_height = tile_size*3
+
+func reload():
+	game_over = false
+	get_tree().paused = false
+	get_tree().reload_current_scene()
