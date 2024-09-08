@@ -4,7 +4,7 @@ extends Node2D
 @onready var camera = $Camera2D
 @onready var spawn_timer = $Spawn_timer
 @onready var win_animation = $WinAnimation
-@onready var lose_text = $Lose_stuff
+@onready var lose_text = $Lose_stuff/Control
 @onready var sky = $Background
 @onready var heightline = $Height_line
 @onready var score_text = $Height_line/Text

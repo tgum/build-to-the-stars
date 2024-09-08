@@ -35,6 +35,8 @@ var tile_size = 32
 
 var screen_dimensions
 
+var music_play : bool
+
 var game_over = false
 var win_game = false
 
