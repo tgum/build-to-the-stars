@@ -22,10 +22,6 @@ var play_area_origin
 var base_img_height
 
 func _ready():
-	start()
-	get_viewport().connect("size_changed", _on_viewport_resize)
-
-func start():
 	play_area_size = sky.get_texture().get_size()
 	play_area_origin = sky.position - play_area_size/2
 	base_img_height = base_img.texture.get_size().y
@@ -45,6 +41,7 @@ func start():
 						   0, 10,
 						   play_area_origin.y+play_area_size.y-base_img_height, play_area_origin.y)
 		text_label.position.y -= text_label.size.y
+	get_viewport().connect("size_changed", _on_viewport_resize)
 
 func _on_viewport_resize():
 	var screen_size = get_viewport().get_size()
@@ -131,5 +128,4 @@ func _on_quit_button_up():
 
 func _on_restart_button_up():
 	Globals.reload()
-	start()
-	do_can_spawn()
+	get_tree().change_scene_to_file("res://Start_scene.tscn")

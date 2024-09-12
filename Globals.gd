@@ -13,9 +13,9 @@ func placed_block_texture():
 #var block_texture = preload("res://assets/Buildings/Buildings3.png")
 
 var houselet_shapes = [
-	[Vector2(0,0), Vector2(1,0), Vector2(2,0), Vector2(1,1)], # T
-	[Vector2(0,0), Vector2(1,0), Vector2(1,1), Vector2(2,1)], # Z
-	[Vector2(0,0), Vector2(0,1), Vector2(1,1), Vector2(2,1), Vector2(2,0)], # U
+	[Vector2(0, 0), Vector2(1, 0), Vector2(2, 0), Vector2(1, 1)], # T
+	[Vector2(0, 0), Vector2(1, 0), Vector2(1, 1), Vector2(2, 1)], # Z
+	[Vector2(0, 0), Vector2(0, 1), Vector2(1, 1), Vector2(2, 1), Vector2(2, 0)], # U
 	[Vector2(0, 0), Vector2(1, 0), Vector2(2, 0), Vector2(3, 0)], # I
 	[Vector2(0, 0), Vector2(1, 0), Vector2(1, -1), Vector2(2, -1)], # S
 	[Vector2(0, 0), Vector2(1, 0), Vector2(2, 0), Vector2(2, 1)], # L
@@ -35,7 +35,7 @@ var tile_size = 32
 
 var screen_dimensions
 
-var music_play : bool
+var music_play = false
 
 var game_over = false
 var win_game = false
