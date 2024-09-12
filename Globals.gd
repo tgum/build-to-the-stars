@@ -62,5 +62,6 @@ func _ready():
 
 func reload():
 	game_over = false
+	win_game = false
 	get_tree().paused = false
 	get_tree().reload_current_scene()
