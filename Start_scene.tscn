@@ -18,37 +18,40 @@ frame_2/duration = 1.0
 frame_3/texture = ExtResource("5_xnskh")
 frame_3/duration = 1.0
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_e5isb")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1111.0
+offset_bottom = 607.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_l74hd")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -80.0
-offset_top = -81.0
-offset_bottom = -1.0
+offset_left = 1032.0
+offset_top = 527.0
+offset_right = 1112.0
+offset_bottom = 607.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = SubResource("AnimatedTexture_skm8q")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Control"]
 position = Vector2(576, 324)

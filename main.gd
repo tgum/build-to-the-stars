@@ -24,9 +24,7 @@ var play_area_origin
 var base_img_height
 
 func _ready():
-	if Globals.reloaded == false:
-		Globals.reloaded = true
-		Globals.reload()
+	Globals.reload()
 	
 	play_area_size = sky.get_texture().get_size()
 	play_area_origin = sky.position - play_area_size/2
