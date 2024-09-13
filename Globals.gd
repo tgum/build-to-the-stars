@@ -42,6 +42,8 @@ var win_game = false
 
 var drop_height
 
+var reloaded = false
+
 func reload():
 	ghost_block_textures = []
 	placed_block_textures = []
