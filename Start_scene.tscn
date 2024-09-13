@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://bg24gadkuepa5"]
+
+[ext_resource type="Script" path="res://Start_scene.gd" id="1_e5isb"]
+[ext_resource type="Texture2D" uid="uid://dxl0pu7fkml01" path="res://assets/Cover art.png" id="1_l74hd"]
+[ext_resource type="Texture2D" uid="uid://be41xxlghj8ta" path="res://assets/UI/Load1.png" id="2_jxhsg"]
+[ext_resource type="Texture2D" uid="uid://c1bt5kq2aytpa" path="res://assets/UI/Load2.png" id="3_s2nyy"]
+[ext_resource type="Texture2D" uid="uid://bqaueqjhbujv4" path="res://assets/UI/Load3.png" id="4_687d3"]
+[ext_resource type="Texture2D" uid="uid://nniewuqvrdd4" path="res://assets/UI/Load4.png" id="5_xnskh"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_skm8q"]
+frames = 4
+speed_scale = 10.0
+frame_0/texture = ExtResource("2_jxhsg")
+frame_1/texture = ExtResource("3_s2nyy")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_687d3")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("5_xnskh")
+frame_3/duration = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_e5isb")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1111.0
+offset_bottom = 607.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_l74hd")
+
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1032.0
+offset_top = 527.0
+offset_right = 1112.0
+offset_bottom = 607.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AnimatedTexture_skm8q")
+
+[node name="Camera2D" type="Camera2D" parent="Control"]
+position = Vector2(576, 324)

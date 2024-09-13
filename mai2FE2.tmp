@@ -229,6 +229,46 @@ animations = [{
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p4n67"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ey6u3"]
+texture = ExtResource("58_q3fqv")
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_doxon"]
+frames = 4
+speed_scale = 10.0
+frame_0/texture = ExtResource("58_q3fqv")
+frame_1/texture = ExtResource("59_uhnkx")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("60_487fi")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("61_fdwor")
+frame_3/duration = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_acy2k"]
+texture = SubResource("AnimatedTexture_doxon")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rv01x"]
+texture = ExtResource("62_kto4k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7bwrc"]
+texture = ExtResource("63_msp78")
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_28vx4"]
+frames = 4
+speed_scale = 10.0
+frame_0/texture = ExtResource("63_msp78")
+frame_1/texture = ExtResource("64_yf0wa")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("65_hxnir")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("66_jpy5h")
+frame_3/duration = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tve56"]
+texture = SubResource("AnimatedTexture_28vx4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fmwvx"]
+texture = ExtResource("67_5trg6")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jjq1f"]
 texture = ExtResource("68_te6nk")
 
@@ -269,46 +309,6 @@ texture = SubResource("AnimatedTexture_fyn5a")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ao8nt"]
 texture = ExtResource("77_loym3")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r1kug"]
-texture = ExtResource("58_q3fqv")
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_harsk"]
-frames = 4
-speed_scale = 10.0
-frame_0/texture = ExtResource("58_q3fqv")
-frame_1/texture = ExtResource("59_uhnkx")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("60_487fi")
-frame_2/duration = 1.0
-frame_3/texture = ExtResource("61_fdwor")
-frame_3/duration = 1.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x4qvx"]
-texture = SubResource("AnimatedTexture_harsk")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ccp5"]
-texture = ExtResource("62_kto4k")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_py4h5"]
-texture = ExtResource("63_msp78")
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_28vx4"]
-frames = 4
-speed_scale = 10.0
-frame_0/texture = ExtResource("63_msp78")
-frame_1/texture = ExtResource("64_yf0wa")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("65_hxnir")
-frame_2/duration = 1.0
-frame_3/texture = ExtResource("66_jpy5h")
-frame_3/duration = 1.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0nln7"]
-texture = SubResource("AnimatedTexture_28vx4")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ijxvg"]
-texture = ExtResource("67_5trg6")
-
 [node name="Game" type="Node2D"]
 process_mode = 3
 texture_filter = 1
@@ -325,7 +325,6 @@ offset_left = -104.0
 offset_top = -40.0
 offset_right = -3.0
 offset_bottom = 5.0
-metadata/_edit_use_anchors_ = true
 
 [node name="Height_markers" type="Node2D" parent="."]
 
@@ -408,7 +407,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect3" type="TextureRect" parent="Lose_stuff/Control"]
 layout_mode = 1
@@ -418,7 +416,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("68_3eue6")
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Lose_stuff/Control"]
 layout_mode = 1
@@ -434,7 +431,6 @@ offset_bottom = 65.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("56_62lxf")
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="Lose_stuff/Control"]
 layout_mode = 1
@@ -446,17 +442,62 @@ offset_right = 203.5
 offset_bottom = 169.0
 grow_horizontal = 2
 texture = ExtResource("55_vaftp")
-metadata/_edit_use_anchors_ = true
+
+[node name="LoseText" type="TextureRect" parent="Lose_stuff/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 333.0
+offset_top = 45.0
+offset_right = 700.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("55_vaftp")
+stretch_mode = 4
+
+[node name="Restart" type="Button" parent="Lose_stuff/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -128.0
+offset_right = 208.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ey6u3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_acy2k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rv01x")
+
+[node name="Quit" type="Button" parent="Lose_stuff/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -208.0
+offset_top = -128.0
+offset_right = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_7bwrc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tve56")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fmwvx")
 
 [node name="Control2" type="Control" parent="Lose_stuff"]
-process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="Lose_stuff/Control2"]
 layout_mode = 1
@@ -469,7 +510,6 @@ grow_horizontal = 0
 theme_override_styles/normal = SubResource("StyleBoxTexture_jjq1f")
 theme_override_styles/hover = SubResource("StyleBoxTexture_y076b")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_7wu0d")
-metadata/_edit_use_anchors_ = true
 
 [node name="Button2" type="Button" parent="Lose_stuff/Control2"]
 layout_mode = 1
@@ -483,44 +523,7 @@ grow_horizontal = 0
 theme_override_styles/normal = SubResource("StyleBoxTexture_5b7hj")
 theme_override_styles/hover = SubResource("StyleBoxTexture_j5ox4")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ao8nt")
-metadata/_edit_use_anchors_ = true
-
-[node name="Restart" type="Button" parent="Lose_stuff/Control2"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 112.0
-offset_top = -96.0
-offset_right = 256.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxTexture_r1kug")
-theme_override_styles/hover = SubResource("StyleBoxTexture_x4qvx")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_0ccp5")
-metadata/_edit_use_anchors_ = true
-
-[node name="Quit" type="Button" parent="Lose_stuff/Control2"]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -200.0
-offset_top = -96.0
-offset_right = -56.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxTexture_py4h5")
-theme_override_styles/hover = SubResource("StyleBoxTexture_0nln7")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_ijxvg")
-metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="Spawn_timer" to="." method="do_can_spawn"]
-[connection signal="button_up" from="Lose_stuff/Control2/Restart" to="." method="_on_restart_button_up"]
-[connection signal="button_up" from="Lose_stuff/Control2/Quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="Lose_stuff/Control/Restart" to="." method="_on_restart_button_up"]
+[connection signal="button_up" from="Lose_stuff/Control/Quit" to="." method="_on_quit_button_up"]

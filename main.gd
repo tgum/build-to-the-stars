@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var restart_button = $Lose_stuff/Control2/Restart
+@onready var quit_button = $Lose_stuff/Control2/Quit
 @onready var block_display = $Block_display
 @onready var camera = $Camera2D
 @onready var spawn_timer = $Spawn_timer
@@ -22,6 +24,8 @@ var play_area_origin
 var base_img_height
 
 func _ready():
+	Globals.reload()
+	
 	play_area_size = sky.get_texture().get_size()
 	play_area_origin = sky.position - play_area_size/2
 	base_img_height = base_img.texture.get_size().y
@@ -94,6 +98,8 @@ func _process(delta):
 			block_display.visible = false
 			Globals.game_over = true
 			lose_text.visible = true
+			quit_button.visible = true
+			restart_button.visible = true
 		Globals.next_block.y = min(highest_block, 0) - Globals.drop_height
 		if Globals.can_drop:
 			camera.position.y = round(highest_block)
@@ -122,9 +128,10 @@ func check_exit():
 		get_tree().quit()
 
 
-func _on_quit_button_up():
-	get_tree().quit()
-
-
 func _on_restart_button_up():
 	Globals.reload()
+	get_tree().change_scene_to_file("res://Start_scene.tscn")
+
+
+func _on_quit_button_up():
+	get_tree().quit()
