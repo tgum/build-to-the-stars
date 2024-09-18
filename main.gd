@@ -23,6 +23,8 @@ var play_area_size
 var play_area_origin
 var base_img_height
 
+
+
 func _ready():
 	Globals.reload()
 	
@@ -54,8 +56,11 @@ func _on_viewport_resize():
 	#camera.limit_right = Globals.screen_dimensions.x/2
 
 func _input(event):
-	if event is InputEventMouseMotion:
-		Globals.next_block.x = event.position.x/camera.zoom.x  - Globals.screen_dimensions.x/2
+	if event is InputEventMouseMotion and Globals.mouse_in_pause == false:
+		var mouse_position = event.position.x/camera.zoom.x  - Globals.screen_dimensions.x/2
+		Globals.next_block.x = lerp(int(mouse_position), int(Globals.next_block.x), 0.5 )
+	else:
+		Globals.next_block.x = lerp(Globals.next_block.x, 0.0, 0.3)
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT and Globals.can_drop:
 			new_houselet(Globals.next_block.x, Globals.next_block.y)
@@ -111,7 +116,7 @@ func _process(delta):
 		
 		if houselets.size() > 0 and timer_thing:
 			var last_houselet = houselets[houselets.size()-1]
-			if last_houselet.linear_velocity.length() < 5:
+			if last_houselet.linear_velocity.length() < 5 and !Globals.mouse_in_pause:
 				Globals.can_drop = true
 	else:
 		camera.position = Vector2.ZERO
@@ -135,3 +140,23 @@ func _on_restart_button_up():
 
 func _on_quit_button_up():
 	get_tree().quit()
+
+
+func _on_button_2_pressed():
+	if get_tree().paused:
+		get_tree().paused = false
+	else:
+		get_tree().paused = true
+
+func _on_button_2_mouse_entered():
+	Globals.mouse_in_pause = true
+	print("Mouse is in the trap")
+func _on_button_mouse_entered():
+	Globals.mouse_in_pause = true
+	print("Mouse is in the trap")
+func _on_button_2_mouse_exited():
+	Globals.mouse_in_pause = false
+	print("Mouse left the trap")
+func _on_button_mouse_exited():
+	Globals.mouse_in_pause = false
+	print("Mouse left the trap")
