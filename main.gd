@@ -127,11 +127,12 @@ func check_exit():
 	if Input.is_action_pressed("Escape"):
 		get_tree().quit()
 
-
+# This is for losing/winning
 func _on_restart_button_up():
 	Globals.reload()
 	get_tree().change_scene_to_file("res://Start_scene.tscn")
 
-
 func _on_quit_button_up():
 	get_tree().quit()
+
+# This is for the pause buttons

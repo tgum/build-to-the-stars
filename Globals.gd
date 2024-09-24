@@ -71,7 +71,7 @@ func reload():
 	drop_height
 	get_tree().paused = false
 	
-	for i in range(1, 6):
+	for i in range(1, 7):
 		ghost_block_textures.append(load("res://assets/Buildings/Dotted Buildings"+str(i)+".png"))
 		placed_block_textures.append(load("res://assets/Buildings/Buildings"+str(i)+".png"))
 	
