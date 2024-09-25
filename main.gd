@@ -57,7 +57,7 @@ func _input(event):
 	if event is InputEventMouseMotion and Globals.mouse_on_button == false:
 		Globals.next_block.x = event.position.x/camera.zoom.x  - Globals.screen_dimensions.x/2
 	
-	else:
+	elif Globals.mouse_on_button == true:
 		Globals.next_block.x = lerpf(Globals.next_block.x, 0.0, 0.5)
 	
 	if event is InputEventMouseButton and event.pressed:
@@ -158,4 +158,4 @@ func _on_button_2_mouse_entered():
 func _on_button_2_mouse_exited():
 	mouse_on_button(false)
 func _on_button_2_button_up():
-	get_tree().pause = !get_tree().pause
+	pass #get_tree().paused = !get_tree().paused

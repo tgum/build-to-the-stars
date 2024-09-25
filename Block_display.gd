@@ -21,15 +21,16 @@ func clear_children():
 
 #Same here
 func make_display():
-	clear_children()
-	var shape = Globals.houselet_shapes[Globals.next_block.shape_i]
-	var center = Globals.houselet_pivots[Globals.next_block.shape_i]
-	for pos in shape:
-		var image = Sprite2D.new()
-		image.texture = Globals.ghost_block_texture()
-		#image.use_parent_material = true # should the shader be applied to the blocks?
-		block_container.add_child(image)
-		image.position = (pos-center) * Globals.tile_size
+	if Globals.mouse_on_button == false:
+		clear_children()
+		var shape = Globals.houselet_shapes[Globals.next_block.shape_i]
+		var center = Globals.houselet_pivots[Globals.next_block.shape_i]
+		for pos in shape:
+			var image = Sprite2D.new()
+			image.texture = Globals.ghost_block_texture()
+			#image.use_parent_material = true # should the shader be applied to the blocks?
+			block_container.add_child(image)
+			image.position = (pos-center) * Globals.tile_size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
