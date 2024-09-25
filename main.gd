@@ -1,12 +1,12 @@
 extends Node2D
 
-@onready var restart_button = $UI/Control2/Restart
-@onready var quit_button = $UI/Control2/Quit
+@onready var restart_button = $UI/Buttons/Restart
+@onready var quit_button = $UI/Buttons/Quit
 @onready var block_display = $Block_display
 @onready var camera = $Camera2D
 @onready var spawn_timer = $Spawn_timer
 @onready var win_animation = $WinAnimation
-@onready var lose_text = $UI/Control
+@onready var lose_text = $UI/Lose_screen
 @onready var sky = $Background
 @onready var heightline = $Height_line
 @onready var score_text = $Height_line/Text
@@ -60,7 +60,7 @@ func _input(event):
 	elif Globals.mouse_on_button == true:
 		Globals.next_block.x = lerpf(Globals.next_block.x, 0.0, 0.5)
 	
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed and not Globals.mouse_on_button:
 		if event.button_index == MOUSE_BUTTON_LEFT and Globals.can_drop:
 			new_houselet(Globals.next_block.x, Globals.next_block.y)
 			Globals.can_drop = false
@@ -159,4 +159,4 @@ func _on_button_2_mouse_exited():
 	set_mouse_on_button(false)
 	
 func _on_button_2_button_up():
-	pass #get_tree().paused = !get_tree().paused
+	get_tree().paused = !get_tree().paused

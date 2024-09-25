@@ -400,7 +400,7 @@ editor_draw_limits = true
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 3
 
-[node name="Control" type="Control" parent="UI"]
+[node name="Lose_screen" type="Control" parent="UI"]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -410,7 +410,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="transparent white backgroun" type="TextureRect" parent="UI/Control"]
+[node name="transparent white backgroun" type="TextureRect" parent="UI/Lose_screen"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -420,7 +420,7 @@ grow_vertical = 2
 texture = ExtResource("68_3eue6")
 metadata/_edit_use_anchors_ = true
 
-[node name="Score text" type="TextureRect" parent="UI/Control"]
+[node name="Score text" type="TextureRect" parent="UI/Lose_screen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -436,7 +436,7 @@ grow_vertical = 2
 texture = ExtResource("56_62lxf")
 metadata/_edit_use_anchors_ = true
 
-[node name="Lose text" type="TextureRect" parent="UI/Control"]
+[node name="Lose text" type="TextureRect" parent="UI/Lose_screen"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -448,7 +448,7 @@ grow_horizontal = 2
 texture = ExtResource("55_vaftp")
 metadata/_edit_use_anchors_ = true
 
-[node name="Control2" type="Control" parent="UI"]
+[node name="Buttons" type="Control" parent="UI"]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -458,7 +458,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Music button" type="Button" parent="UI/Control2"]
+[node name="Music button" type="Button" parent="UI/Buttons"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -471,7 +471,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_y076b")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_7wu0d")
 metadata/_edit_use_anchors_ = true
 
-[node name="Pause button" type="Button" parent="UI/Control2"]
+[node name="Pause button" type="Button" parent="UI/Buttons"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -485,7 +485,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_j5ox4")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ao8nt")
 metadata/_edit_use_anchors_ = true
 
-[node name="Restart" type="Button" parent="UI/Control2"]
+[node name="Restart" type="Button" parent="UI/Buttons"]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -503,7 +503,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_x4qvx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_0ccp5")
 metadata/_edit_use_anchors_ = true
 
-[node name="Quit" type="Button" parent="UI/Control2"]
+[node name="Quit" type="Button" parent="UI/Buttons"]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -522,11 +522,11 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_ijxvg")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="Spawn_timer" to="." method="do_can_spawn"]
-[connection signal="button_up" from="UI/Control2/Music button" to="." method="_on_button_button_up"]
-[connection signal="mouse_entered" from="UI/Control2/Music button" to="." method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="UI/Control2/Music button" to="." method="_on_button_mouse_exited"]
-[connection signal="button_up" from="UI/Control2/Pause button" to="." method="_on_button_2_button_up"]
-[connection signal="mouse_entered" from="UI/Control2/Pause button" to="." method="_on_button_2_mouse_entered"]
-[connection signal="mouse_exited" from="UI/Control2/Pause button" to="." method="_on_button_2_mouse_exited"]
-[connection signal="button_up" from="UI/Control2/Restart" to="." method="_on_restart_button_up"]
-[connection signal="button_up" from="UI/Control2/Quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="UI/Buttons/Music button" to="." method="_on_button_button_up"]
+[connection signal="mouse_entered" from="UI/Buttons/Music button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Buttons/Music button" to="." method="_on_button_mouse_exited"]
+[connection signal="button_up" from="UI/Buttons/Pause button" to="." method="_on_button_2_button_up"]
+[connection signal="mouse_entered" from="UI/Buttons/Pause button" to="." method="_on_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Buttons/Pause button" to="." method="_on_button_2_mouse_exited"]
+[connection signal="button_up" from="UI/Buttons/Restart" to="." method="_on_restart_button_up"]
+[connection signal="button_up" from="UI/Buttons/Quit" to="." method="_on_quit_button_up"]
