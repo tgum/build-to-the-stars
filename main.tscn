@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://clpl3one3n7q6"]
+[gd_scene load_steps=97 format=3 uid="uid://clpl3one3n7q6"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_kj17n"]
 [ext_resource type="PackedScene" uid="uid://ccba4pn4u154r" path="res://Text.tscn" id="2_44nk4"]
@@ -77,6 +77,7 @@
 [ext_resource type="Texture2D" uid="uid://bj5rvodwiutdf" path="res://assets/UI/HUD-Buttons8.png" id="75_7tos3"]
 [ext_resource type="Texture2D" uid="uid://dhfed81mchrat" path="res://assets/UI/HUD-Buttons9.png" id="76_lu6st"]
 [ext_resource type="Texture2D" uid="uid://bp64vcjgpfkq5" path="res://assets/UI/HUD-Buttons10.png" id="77_loym3"]
+[ext_resource type="Texture2D" uid="uid://luptvebg1oy6" path="res://assets/UI/Win/Pause.png" id="78_a1ehs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tqif6"]
 animations = [{
@@ -520,6 +521,18 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_py4h5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_0nln7")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ijxvg")
 metadata/_edit_use_anchors_ = true
+
+[node name="Paused" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Pause" type="Sprite2D" parent="UI/Paused"]
+position = Vector2(591, 308)
+scale = Vector2(3, 3)
+texture = ExtResource("78_a1ehs")
 
 [connection signal="timeout" from="Spawn_timer" to="." method="do_can_spawn"]
 [connection signal="button_up" from="UI/Buttons/Music button" to="." method="_on_button_button_up"]

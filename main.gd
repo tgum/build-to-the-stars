@@ -7,11 +7,13 @@ extends Node2D
 @onready var spawn_timer = $Spawn_timer
 @onready var win_animation = $WinAnimation
 @onready var lose_text = $UI/Lose_screen
+@onready var pause_text = $UI/Paused
 @onready var sky = $Background
 @onready var heightline = $Height_line
 @onready var score_text = $Height_line/Text
 @onready var height_markers = $Height_markers
 @onready var base_img = $Base
+
 
 var timer_thing = true
 func do_can_spawn():
@@ -160,3 +162,4 @@ func _on_button_2_mouse_exited():
 	
 func _on_button_2_button_up():
 	get_tree().paused = !get_tree().paused
+	pause_text.visible = get_tree().paused
