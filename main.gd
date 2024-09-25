@@ -54,8 +54,12 @@ func _on_viewport_resize():
 	#camera.limit_right = Globals.screen_dimensions.x/2
 
 func _input(event):
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and Globals.mouse_on_button == false:
 		Globals.next_block.x = event.position.x/camera.zoom.x  - Globals.screen_dimensions.x/2
+	
+	else:
+		Globals.next_block.x = lerpf(Globals.next_block.x, 0.0, 0.5)
+	
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT and Globals.can_drop:
 			new_houselet(Globals.next_block.x, Globals.next_block.y)
@@ -135,4 +139,23 @@ func _on_restart_button_up():
 func _on_quit_button_up():
 	get_tree().quit()
 
+
+func mouse_on_button(true_false : bool):
+	Globals.mouse_on_button = true_false
+
 # This is for the pause buttons
+
+func _on_button_mouse_entered():
+	mouse_on_button(true)
+func _on_button_mouse_exited():
+	mouse_on_button(false)
+func _on_button_button_up():
+	Globals.music_play = !Globals.music_play
+
+
+func _on_button_2_mouse_entered():
+	mouse_on_button(true)
+func _on_button_2_mouse_exited():
+	mouse_on_button(false)
+func _on_button_2_button_up():
+	get_tree().pause = !get_tree().pause

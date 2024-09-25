@@ -3,6 +3,8 @@ extends Node
 @onready var houselet_scene = load("res://houselet.tscn")
 @onready var text_scene = load("res://Text.tscn")
 
+var mouse_on_button = false
+
 var ghost_block_textures = []
 var placed_block_textures = []
 func ghost_block_texture():
