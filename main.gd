@@ -1,12 +1,12 @@
 extends Node2D
 
-@onready var restart_button = $Lose_stuff/Control2/Restart
-@onready var quit_button = $Lose_stuff/Control2/Quit
+@onready var restart_button = $UI/Control2/Restart
+@onready var quit_button = $UI/Control2/Quit
 @onready var block_display = $Block_display
 @onready var camera = $Camera2D
 @onready var spawn_timer = $Spawn_timer
 @onready var win_animation = $WinAnimation
-@onready var lose_text = $Lose_stuff/Control
+@onready var lose_text = $UI/Control
 @onready var sky = $Background
 @onready var heightline = $Height_line
 @onready var score_text = $Height_line/Text
@@ -140,22 +140,23 @@ func _on_quit_button_up():
 	get_tree().quit()
 
 
-func mouse_on_button(true_false : bool):
-	Globals.mouse_on_button = true_false
+func set_mouse_on_button(value : bool):
+	Globals.mouse_on_button = value
 
 # This is for the pause buttons
 
 func _on_button_mouse_entered():
-	mouse_on_button(true)
+	set_mouse_on_button(true)
 func _on_button_mouse_exited():
-	mouse_on_button(false)
+	set_mouse_on_button(false)
 func _on_button_button_up():
 	Globals.music_play = !Globals.music_play
 
 
 func _on_button_2_mouse_entered():
-	mouse_on_button(true)
+	set_mouse_on_button(true)
 func _on_button_2_mouse_exited():
-	mouse_on_button(false)
+	set_mouse_on_button(false)
+	
 func _on_button_2_button_up():
 	pass #get_tree().paused = !get_tree().paused
