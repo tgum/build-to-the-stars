@@ -7,11 +7,21 @@ var mouse_on_button = false
 
 var ghost_block_textures = []
 var placed_block_textures = []
+
+var special_ghost_block_textures = []
+var special_placed_block_textures = []
+
 func ghost_block_texture():
-	return ghost_block_textures[next_block.texture_i]
+	block_texture = randi_range(1,6)
+	return ghost_block_textures[block_texture]
+func special_ghost_block_texture():
+	block_texture = randi_range(1,6)
+	return special_ghost_block_textures[block_texture]
 
 func placed_block_texture():
-	return placed_block_textures[next_block.texture_i]
+	return placed_block_textures[block_texture]
+func special_placed_block_texture():
+	return special_placed_block_textures[block_texture]
 #var block_texture = preload("res://assets/Buildings/Buildings3.png")
 
 var houselet_shapes = [
@@ -26,12 +36,13 @@ var houselet_shapes = [
 var houselet_pivots = []
 
 var can_drop = true
+
+var block_texture := 0
 var next_block = {
 	"rotation": 0,
 	"x": 0,
 	"y": 0,
 	"shape_i": 0,
-	"texture_i": 0
 }
 var tile_size = 32
 
@@ -94,6 +105,9 @@ func _ready():
 	for i in range(1, 6):
 		ghost_block_textures.append(load("res://assets/Buildings/Dotted Buildings"+str(i)+".png"))
 		placed_block_textures.append(load("res://assets/Buildings/Buildings"+str(i)+".png"))
+		
+		special_ghost_block_textures.append(load("res://assets/Buildings/Specials"+str(i)+".png"))
+		special_placed_block_textures.append(load("res://assets/Buildings/SpecialsDotted"+str(i)+".png"))
 	
 	for houselet in houselet_shapes:
 		var avg = Vector2.ZERO

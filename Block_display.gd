@@ -9,6 +9,9 @@ extends Node2D
 @onready var block_container = $Blocks
 @onready var sprite = $Magnet
 
+var special := false
+var special_random := 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	make_display()
@@ -21,13 +24,21 @@ func clear_children():
 
 #Same here
 func make_display():
+	
+	special_random = randi_range(0, 6)
+	if special_random == 0:
+		special = true
+	
 	if Globals.mouse_on_button == false:
 		clear_children()
 		var shape = Globals.houselet_shapes[Globals.next_block.shape_i]
 		var center = Globals.houselet_pivots[Globals.next_block.shape_i]
 		for pos in shape:
 			var image = Sprite2D.new()
-			image.texture = Globals.ghost_block_texture()
+			if special == false:
+				image.texture = Globals.ghost_block_texture()
+			else:
+				image.texture = Globals.special_ghost_block_texture()
 			#image.use_parent_material = true # should the shader be applied to the blocks?
 			block_container.add_child(image)
 			image.position = (pos-center) * Globals.tile_size
